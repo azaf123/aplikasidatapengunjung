@@ -9,7 +9,7 @@
               <a href="#">
                 <button type="button" class="btn btn-primary">
                   <img
-                    src="{{asset('/assets/images/landingpage/pertamina-patra-niaga.png')}}"
+                    src="{{asset('/assets/images/landingpage/ptpt.png')}}"
                     alt="add img"
                   />
                 </button>
@@ -34,7 +34,7 @@
               </a>
             </div>
             <div class="btnid">
-              <a href="#/checkout">
+              <a href="{{url('/keluarpengunjungform')}}">
                 <button type="button" class="btn btn-danger">
                   <img src="{{url('/assets/images/landingpage/id.png')}}" alt="id img" /><br /><b
                     >Ambil Tanda Pengenal</b

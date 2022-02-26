@@ -44,7 +44,7 @@
                             <th>Nama Pengunjung</th>
                             <th>Alamat</th>
                             <th>Fungsi Yang Dikunjungi</th>
-                            <th>Karyawan ID</th>
+                            <th>Nama Karyawan</th>
                             <th>Keperluan</th>
                             <th>Tanggal dan Waktu Kunjungan</th>
                         </tr>
@@ -57,7 +57,7 @@
                             <td>{{ $item->nama_pengunjung }}</td>
                             <td>{{ $item->alamat }}</td>
                             <td>{{ $item->fungsi->nama_fungsi }}</td>
-                            <td>{{ $item->karyawan_id }}</td>
+                            <td>{{ $item->employee->nama_karyawan }}</td>
                             <td>{{ $item->keperluan }}</td>
                             <td>{{ $item->created_at }}</td>
 

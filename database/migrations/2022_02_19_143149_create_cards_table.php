@@ -14,7 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cards', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->string('no_kartu');
+            $table->enum('status',['aktif','inaktif']);
             $table->timestamps();
         });
     }

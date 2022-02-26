@@ -24,13 +24,19 @@
                                 <h5>{{ $visitor->fungsi->nama_fungsi }}</h5>
                                 <br>
                                 <label for="">Nama Karyawan Yang dikunjungi</label>
-                                <h5>{{ $visitor->karyawan_id }}</h5>
+                                <h5>{{ $visitor->employee->nama_karyawan }}</h5>
                                 <br>
                                 <label for="">Keperluan</label>
                                 <h5>{{ $visitor->keperluan }}</h5>
                                 <br>
                                 <label for="">Tanggal dan Waktu Kunjungan</label>
                                 <h5>{{ $visitor->created_at }}</h5>
+                                <br>
+                                <label for="">Nomor Kartu</label>
+                                <h5>{{ $visitor->card->no_kartu }}</h5>
+                                <br>
+                                <label for="">Status</label>
+                                <h5>{{ $visitor->status }}</h5>
                             </div>
                             <div class="col-lg-4">
                             <label for="">Foto Pengunjung</label>

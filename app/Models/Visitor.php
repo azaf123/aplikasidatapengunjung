@@ -10,7 +10,7 @@ class Visitor extends Model
 {
     use HasFactory;
     protected $table = 'visitors';
-    protected $fillable = ['image','nama_pengunjung','alamat','fungsi_id','employee_id','keperluan','petugas_id','created_at','updated_at'];
+    protected $fillable = ['image','nama_pengunjung','alamat','fungsi_id','employee_id','keperluan','petugas_id','card_id','status','created_at','updated_at'];
 
     public function fungsi(){
         return $this->BelongsTo('App\Models\Fungsi');
@@ -19,5 +19,9 @@ class Visitor extends Model
     public function employee(){
         return $this->belongsTo(Employee::class);
     }
+    public function card(){
+        return $this->belongsTo(Card::class);
+    }
+    
     
 }

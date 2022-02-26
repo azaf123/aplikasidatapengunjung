@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::table('visitors', function (Blueprint $table) {
             
             $table->enum('status',['datang','pulang']);
-            
         });
     }
 

@@ -128,7 +128,7 @@
                                                     <div class="position-relative">
                                                         <select class="form-control @error('karyawanid') is-invalid @enderror" id="karyawanid" name="karyawanid">
                                                             <!-- using FOREIGN ID -->
-                                                           
+
                                                         </select>
                                                         <div class="form-control-icon">
                                                             <i class="bi bi-person"></i>
@@ -152,6 +152,49 @@
                                                             <label for="floatingTextarea">Masukkan Keperluan</label>
                                                         </div>
                                                         @error('keperluan')
+                                                        <div class="invalid-feedback">
+                                                            {{$message}}
+                                                        </div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Nomor Kartu</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-group has-icon-left">
+                                                    <div class="position-relative">
+                                                        <select class="form-control @error('nokartu') is-invalid @enderror" id="nokartu" name="nokartu">
+                                                            <!-- using FOREIGN ID -->
+                                                            @foreach ($card as $item)
+                                                            <option value="{{$item->id}}">{{$item->no_kartu}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        <div class="form-control-icon">
+                                                            <i class="bi bi-person"></i>
+                                                        </div>
+                                                        @error('nokartu')
+                                                        <div class="invalid-feedback">
+                                                            {{$message}}
+                                                        </div>
+                                                        @enderror
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Status</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-group has-icon-left">
+                                                    <div class="position-relative">
+                                                        <select name="status" id="" class="@error('status') is-invalid @enderror">
+                                                            <option value="datang">Datang</option>
+                                                            <option value="pulang">Pulang</option>
+                                                        </select>
+
+                                                        @error('status')
                                                         <div class="invalid-feedback">
                                                             {{$message}}
                                                         </div>
@@ -188,12 +231,11 @@
             success: function(res) {
                 $('#karyawanid').empty();
                 $("#karyawanid").append('<option>Pilih Karyawan</option>');
-                if(res)
-                {
-                    $.each(res,function(key,value){
+                if (res) {
+                    $.each(res, function(key, value) {
                         $('#karyawanid').append($("<option/>", {
-                           value: value['id'],
-                           text: value['nama_karyawan']
+                            value: value['id'],
+                            text: value['nama_karyawan']
                         }));
                     });
                 }

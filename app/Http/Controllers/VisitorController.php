@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Card;
 use App\Models\Visitor;
 use App\Models\Employee;
 use App\Models\Fungsi;
@@ -27,10 +28,12 @@ class VisitorController extends Controller
      */
     public function create()
     {
+        
         $visitor = Visitor::all();
         $employee = Employee::all();
         $fungsi = Fungsi::all();
-        return view('visitor.create', compact('visitor','employee','fungsi'));
+        $card = Card::where('status','inaktif')->get();
+        return view('visitor.create', compact('visitor','employee','fungsi','card'));
     }
 
     /**
@@ -49,7 +52,9 @@ class VisitorController extends Controller
                 'alamat'=>'required',
                 'fungsiid'=>'required',
                 'karyawanid'=>'required',
-                'keperluan'=>'required'
+                'keperluan'=>'required',
+                'nokartu'=>'required',
+                'status'=>'required'
 
 
             ],
@@ -61,6 +66,7 @@ class VisitorController extends Controller
                 'fungsiid.required' => 'Nama Fungsi Diperlukan',
                 'karyawanid'=> 'nama karyawan diperlukan',
                 'keperluan'=> 'keperluan diperlukan'
+                
 
             ]
         );
@@ -70,7 +76,8 @@ class VisitorController extends Controller
         $img = $request->file('image'); //mengambil file dari form
         $file_name = time()."_". $img->getClientOriginalName(); //mengambil dan mengedit nama file dari form
         $img->move('img', $file_name); //proses memasukkan image ke dalam direktori laravel
-
+        
+        
         
         
        
@@ -80,10 +87,15 @@ class VisitorController extends Controller
                 'nama_pengunjung' => $request->namavisitor,
                 'alamat' => $request->alamat,
                 'fungsi_id' => $request->fungsiid,
-                'karyawan_id'=> $request->karyawanid,
-                'keperluan'=>$request->keperluan
-            ]
-        );
+                'employee_id'=> $request->karyawanid,
+                'keperluan'=>$request->keperluan,
+                'card_id'=>$request->nokartu,
+                'status'=>$request->status,
+            ]);
+            Card::where('id', $request->nokartu)->update([
+                'status'=> 'aktif'
+            ]);
+            
         return redirect('/visitor')->with('status', 'Berhasil Ditambahkan');
     }
 
@@ -106,6 +118,7 @@ class VisitorController extends Controller
      */
     public function edit(Visitor $visitor)
     {
+        // return $visitor;
         $visitor = Visitor::all();
         return view('visitor.update',compact('visitor'));
     }
@@ -119,6 +132,7 @@ class VisitorController extends Controller
      */
     public function update(Request $request, Visitor $visitor)
     {
+        
         $request->validate(
             [
                 'image'=> 'required',
@@ -126,7 +140,9 @@ class VisitorController extends Controller
                 'alamat'=>'required',
                 'fungsiid'=>'required',
                 'karyawanid'=>'required',
-                'keperluan'=>'required'
+                'keperluan'=>'required',
+                'nokartu'=>'required',
+                'status'=>'required'
 
 
             ],
@@ -137,7 +153,8 @@ class VisitorController extends Controller
                 'alamat.required' => 'Nomor Pegawai Diperlukan',
                 'fungsiid.required' => 'Nama Fungsi Diperlukan',
                 'karyawanid'=> 'nama karyawan diperlukan',
-                'keperluan'=> 'keperluan diperlukan'
+                'keperluan'=> 'keperluan diperlukan',
+                
 
             ]
         );
@@ -153,8 +170,10 @@ class VisitorController extends Controller
                     'nama_pengunjung' => $request->namavisitor,
                     'alamat' => $request->alamat,
                     'fungsi_id' => $request->fungsiid,
-                    'karyawan_id'=> $request->karyawanid,
-                    'keperluan'=>$request->keperluan
+                    'employee_id'=> $request->karyawanid,
+                    'keperluan'=>$request->keperluan,
+                    'card_id'=>$request->nokartu,
+                    'status'=>$request->status,
                 ]
             );
         } else {
@@ -163,8 +182,10 @@ class VisitorController extends Controller
                     'nama_pengunjung' => $request->namavisitor,
                     'alamat' => $request->alamat,
                     'fungsi_id' => $request->fungsiid,
-                    'karyawan_id'=> $request->karyawanid,
-                    'keperluan'=>$request->keperluan
+                    'employee_id'=> $request->karyawanid,
+                    'keperluan'=>$request->keperluan,
+                    'card_id'=>$request->nokartu,
+                    'status'=>$request->status,
                 ]
             );
         }
@@ -182,6 +203,9 @@ class VisitorController extends Controller
     public function destroy(Visitor $visitor)
     {
         Visitor::destroy('id', $visitor->id);
+        Card::where('id',$visitor->card_id)->update([
+            'status'=>'inaktif'
+        ]);
         return redirect('/visitor')->with('status','Berhasil Dihapus');
  
     }
@@ -191,5 +215,30 @@ class VisitorController extends Controller
         return response()->json($karyawan);
     }
 
+    public function keluarForm(){
+
+        $card = Card::where('status','aktif')->get();
+        return view('visitor.keluar',compact('card'));
+    }
+
+    public function keluar(Request $request){
+        // return $request;
+        $visitor = Visitor::where('card_id', $request->nokartu)
+        ->where('status','datang')->first();
+        // return $visitor;
+
+        Visitor::where('id', $visitor->id)->update(
+            [
+                'status'=>'pulang'
+            ]
+            
+        );
+        Card::Where('id', $request->nokartu)->update([
+            'status'=>'inaktif'
+
+        ]);
+
+return redirect('/visitor');
+    }
     
 }

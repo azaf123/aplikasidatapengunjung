@@ -32,6 +32,11 @@
                                 <i class="fa-regular fa-plus"></i> Tambah Pengunjung
                             </a>
                         </div>
+                        <div class="col">
+                            <a href="{{ url('/pengunjungkeluar')}}" class="btn btn-primary" role="button">
+                                <i class="fa-regular fa-plus"></i> Pengunjung Keluar
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
@@ -61,7 +66,9 @@
                                 <th>Fungsi Yang Dikunjungi</th>
                                 <th>Nama Karyawan</th>
                                 <th>Keperluan</th>
-                                <th>Tanggal dan Waktu Kunjungan</th>
+                                <th>Tanggal dan Waktu </th>
+                                <th>Nomor Kartu </th>
+                                <th>Status </th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -76,6 +83,11 @@
                                 <td>{{ $item->employee->nama_karyawan }}</td>
                                 <td>{{ (strlen($item->keperluan)>20) ? substr($item -> keperluan, 0,20) . '...':$item->keperluan }}</td>
                                 <td>{{ $item->created_at }}</td>
+                                <td>{{ $item->card->no_kartu }}</td>
+                                <td>@if($item->status == 'datang')<span class="badge rounded-pill bg-primary">{{ $item->status }}</span>
+                                    @else<span class="badge rounded-pill bg-danger">{{ $item->status }}
+                                        @endif
+                                </td>
                                 <td>
                                     <a href="{{url('/visitor/'.$item->id).'/edit'}}" class="btn btn-info"><i class="fa-regular fa-pen-to-square"></i></a>
                                     <form method="POST" action="{{url('/visitor/'.$item->id)}}">
