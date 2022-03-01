@@ -68,6 +68,7 @@
                                 <th>Keperluan</th>
                                 <th>Tanggal dan Waktu </th>
                                 <th>Nomor Kartu </th>
+                                <th>Nomor Kontak</th>
                                 <th>Status </th>
                                 <th>Aksi</th>
                             </tr>
@@ -84,6 +85,7 @@
                                 <td>{{ (strlen($item->keperluan)>20) ? substr($item -> keperluan, 0,20) . '...':$item->keperluan }}</td>
                                 <td>{{ $item->created_at }}</td>
                                 <td>{{ $item->card->no_kartu }}</td>
+                                <td>{{ $item->contact}}</td>
                                 <td>@if($item->status == 'datang')<span class="badge rounded-pill bg-primary">{{ $item->status }}</span>
                                     @else<span class="badge rounded-pill bg-danger">{{ $item->status }}
                                         @endif

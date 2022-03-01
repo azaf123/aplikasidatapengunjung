@@ -10,7 +10,7 @@ class Employee extends Model
 {
     use HasFactory;
     protected $table = 'employees';
-    protected $fillable = ['nama_karyawan','no_karyawan','fungsi_id','created_at','updated_at'];
+    protected $fillable = ['nama_karyawan','no_karyawan','fungsi_id','email','created_at','updated_at'];
     
     public function fungsi(){
         return $this-> BelongsTo('App\Models\Fungsi');

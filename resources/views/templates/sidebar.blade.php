@@ -17,14 +17,14 @@
                     <li class="sidebar-title">Menu</li>
                     <li class="sidebar-item active">
                         <a href="{{url('/')}}" class='sidebar-link'>
-                            <i class="bi bi-grid-fill"></i>
+                            <i class="bi bi-grid-fill mr-1"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item">
                         <a href="{{url('/visitor')}}" class='sidebar-link'>
-                            <i class="fa-solid fa-users"></i>
+                            <i class="fa-solid fa-users mr-1"></i>
                             <span>Data Visitor</span>
                         </a>
                     </li>
@@ -42,14 +42,14 @@
                     </li>
                     <li class="sidebar-item">
                         <a href="{{url('/fungsi')}}" class='sidebar-link'>
-                            <i class="fa-brands fa-accusoft"></i>
+                        <i class="fa-solid fa-warehouse"></i>
                             <span> Data Fungsi</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item">
                         <a href="{{url('/card')}}" class='sidebar-link'>
-                            <i class="fa-brands fa-accusoft"></i>
+                        <i class="fa-solid fa-id-card"></i>
                             <span> Data Kartu Pengunjung</span>
                         </a>
                     </li>

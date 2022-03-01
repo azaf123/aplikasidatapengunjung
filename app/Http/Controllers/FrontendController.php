@@ -42,7 +42,7 @@ class FrontendController extends Controller
                 'keperluan' => 'required',
                 'nokartu' => 'required',
                 'status' => 'required',
-                'image'=>'required'
+                'nokontak'=>'required'
 
 
             ],
@@ -52,10 +52,10 @@ class FrontendController extends Controller
                 'namavisitor.max' => 'max 100 kata',
                 'alamat.required' => 'Alamat Pengunjung Diperlukan',
                 'fungsiid.required' => 'Nama Fungsi Diperlukan',
-                'karyawanid' => 'Nama Karyawan diperlukan',
-                'keperluan' => 'Keperluan Diperlukan',
-                'image'=>'Foto Diperlukan'
-
+                'karyawanid.required' => 'Nama Karyawan diperlukan',
+                'keperluan.required' => 'Keperluan Diperlukan',
+                'image.required'=>'Foto Diperlukan',
+                 'nokontak.required'=> 'Nomor Kontak HP diperlukan'
 
             ]
         );
@@ -77,17 +77,23 @@ class FrontendController extends Controller
                 'employee_id' => $request->karyawanid,
                 'keperluan' => $request->keperluan,
                 'card_id' => $request->nokartu,
-                'status' => $request->status,
+                'status' => $request->status, 
+                'contact'=>$request->nokontak
             ]
         );
         Card::where('id', $request->nokartu)->update([
             'status' => 'aktif'
         ]);
-        
+        $namakaryawan = Employee::where('id', $request->karyawanid)->first();
 // mail
         $details =[
-            'title'=>'Kedatangan Tamu',
-            'body'=>'Selamat Pagi/Siang Pa/Bu Anda kedatangan tamu yang bernama '. $request->namavisitor. 'Alamat '. $request->alamat
+            'title'=>'Tamu Kunjungan',
+            'namakaryawan'=>$namakaryawan->nama_karyawan,
+            'namavisitor'=>$request->namavisitor,
+            'alamat'=>$request->alamat,
+            'keperluan'=>$request->keperluan,
+            'nokontak'=>$request->nokontak,
+            
         ];
         $email = Employee::where('id', $request->karyawanid)->first();
         Mail::to($email->email)->send(new Email($details));

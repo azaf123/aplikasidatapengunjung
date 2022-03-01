@@ -54,18 +54,22 @@ class VisitorController extends Controller
                 'karyawanid'=>'required',
                 'keperluan'=>'required',
                 'nokartu'=>'required',
-                'status'=>'required'
+                'status'=>'required',
+                'nokontak'=>'required'
 
 
             ],
             [
+                
+                'image.required'=>'Foto diperlukan',
                 'namavisitor.required' => 'Nama Karyawan Diperlukan',
                 'namavisitor.min' => 'min 3 kata',
                 'namavisitor.max' => 'max 100 kata',
                 'alamat.required' => 'Nomor Pegawai Diperlukan',
                 'fungsiid.required' => 'Nama Fungsi Diperlukan',
-                'karyawanid'=> 'nama karyawan diperlukan',
-                'keperluan'=> 'keperluan diperlukan'
+                'karyawanid.required'=> 'Nama karyawan diperlukan',
+                'keperluan.required'=> 'keperluan diperlukan',
+                'nokontak.required'=> 'Nomor Kontak HP diperlukan'
                 
 
             ]
@@ -91,6 +95,7 @@ class VisitorController extends Controller
                 'keperluan'=>$request->keperluan,
                 'card_id'=>$request->nokartu,
                 'status'=>$request->status,
+                'contact'=>$request->nokontak
             ]);
             Card::where('id', $request->nokartu)->update([
                 'status'=> 'aktif'
@@ -142,19 +147,21 @@ class VisitorController extends Controller
                 'karyawanid'=>'required',
                 'keperluan'=>'required',
                 'nokartu'=>'required',
-                'status'=>'required'
+                'status'=>'required',
+                'nokontak'=>'required'
 
 
             ],
             [
+                '.required',
                 'namavisitor.required' => 'Nama Karyawan Diperlukan',
                 'namavisitor.min' => 'min 3 kata',
                 'namavisitor.max' => 'max 100 kata',
                 'alamat.required' => 'Nomor Pegawai Diperlukan',
                 'fungsiid.required' => 'Nama Fungsi Diperlukan',
-                'karyawanid'=> 'nama karyawan diperlukan',
-                'keperluan'=> 'keperluan diperlukan',
-                
+                'karyawanid.required'=> 'Nama karyawan diperlukan',
+                'keperluan.required'=> 'keperluan diperlukan',
+                'nokontak.required'=> 'Nomor Kontak HP diperlukan'
 
             ]
         );
@@ -174,6 +181,7 @@ class VisitorController extends Controller
                     'keperluan'=>$request->keperluan,
                     'card_id'=>$request->nokartu,
                     'status'=>$request->status,
+                    'contact'=>$request->nokontak
                 ]
             );
         } else {

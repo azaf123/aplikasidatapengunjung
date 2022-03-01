@@ -79,6 +79,24 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
+                                                    <label>Nomor Kontak HP</label>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="form-group has-icon-left">
+                                                        <div class="position-relative">
+                                                            <input type="text" class="form-control @error('nokontak') is-invalid @enderror" placeholder="Masukkan No HP" id="first-name-icon" name="nokontak" value="{{$visitor->no_visitor}}">
+                                                            <div class="form-control-icon">
+                                                                <i class="bi bi-person"></i>
+                                                            </div>
+                                                            @error('nokontak')
+                                                            <div class="invalid-feedback">
+                                                                {{$message}}
+                                                            </div>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
                                                     <label>Fungsi Yang Dikunjungi</label>
                                                 </div>
                                                 <div class="col-md-8">

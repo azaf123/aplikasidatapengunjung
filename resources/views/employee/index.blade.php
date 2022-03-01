@@ -58,6 +58,7 @@
                                 <th>Nama Karyawan</th>
                                 <th>Nomor Pegawai</th>
                                 <th>Fungsi</th>
+                                <th>Email Karyawan</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -68,6 +69,7 @@
                                 <td>{{ $item->nama_karyawan }}</td>
                                 <td>{{ $item->no_karyawan }}</td>
                                 <td>{{ $item->fungsi->nama_fungsi }}</td>
+                                <td>{{ $item->email }}</td>
                                
                                 
                                 <td>

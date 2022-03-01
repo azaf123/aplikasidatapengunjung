@@ -65,7 +65,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->no_kartu }}</td>
-                                <td>@if($item->status == 'datang')<span class="badge rounded-pill bg-primary">{{ $item->status }}</span>
+                                <td>@if($item->status == 'aktif')<span class="badge rounded-pill bg-primary">{{ $item->status }}</span>
                                     @else<span class="badge rounded-pill bg-danger">{{ $item->status }}
                                         @endif</td>
 

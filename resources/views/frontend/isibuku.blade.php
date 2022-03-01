@@ -31,7 +31,7 @@
                         <div class="form-body">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <label>Nama Visitor</label>
+                                    <label>Nama Pengunjung</label>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="form-group has-icon-left">
@@ -50,7 +50,7 @@
                                 </div>
                                 <br><br>
                                 <div class="col-md-4">
-                                    <label>Alamat</label>
+                                    <label>Alamat Pengunjung</label>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="form-group has-icon-left">
@@ -69,6 +69,25 @@
                                 </div>
                                 <br><br>
                                 <div class="col-md-4">
+                                    <label>No Kontak HP</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group has-icon-left">
+                                        <div class="position-relative">
+                                            <input type="text" class="form-control @error('nokontak') is-invalid @enderror" placeholder="Masukkan No Kontak HP" id="first-name-icon" name="nokontak">
+                                            <div class="form-control-icon">
+                                                <i class="bi bi-person"></i>
+                                            </div>
+                                            @error('nokontak')
+                                            <div class="invalid-feedback">
+                                                {{$message}}
+                                            </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <br><br>
+                                <div class="col-md-4">
                                     <label>Fungsi Yang Dikunjungi</label>
                                 </div>
                                 <div class="col-md-8">
@@ -76,7 +95,9 @@
                                         <div class="position-relative">
                                             <select class="form-control @error('fungsiid') is-invalid @enderror" id="fungsiid" name="fungsiid" onchange="">
                                                 <!-- using FOREIGN ID -->
-                                                @foreach ($fungsi as $item)
+                                             
+                                                @foreach ($fungsi as $item) 
+                                                <option value="" disabled selected hidden>Pilih Fungsi</option>
                                                 <option value="{{$item->id}}">{{$item->nama_fungsi}}</option>
                                                 @endforeach
                                             </select>
@@ -99,7 +120,7 @@
                                     <div class="form-group has-icon-left">
                                         <div class="position-relative">
                                             <select class="form-control @error('karyawanid') is-invalid @enderror" id="karyawanid" name="karyawanid">
-                                                <!-- using FOREIGN ID -->
+                                                
                                             </select>
                                             <div class="form-control-icon">
                                                 <i class="bi bi-person"></i>
@@ -250,7 +271,9 @@
     }
 </script>
 <script>
+    
     $('#fungsiid').on('change', function() {
+       
         var id = $(this).val(); // mendapatkan nilai value
         var url = '{{url('/karyawan/')}}' + '/' + id;
 

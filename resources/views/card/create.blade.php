@@ -60,16 +60,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <label>Status</label>
-                                            </div>
                                             <div class="col-md-8">
                                                 <div class="form-group has-icon-left">
                                                     <div class="position-relative">
-                                                        <select name="status" id="" class="@error('status') is-invalid @enderror">
-                                                            <option value="aktif">Aktif</option>
-                                                            <option value="inaktif">Tidak Aktif</option>
-                                                        </select>
+                                                        <input type="hidden" value="inaktif" name="status">
+                                                        
                                                         @error('status')
                                                         <div class="invalid-feedback">
                                                             {{$message}}

@@ -20,6 +20,9 @@
                                 <label for="">Alamat Pengunjung</label>
                                 <h5>{{ $visitor->alamat }}</h5>
                                 <br>
+                                <label for="">Nomor Kontak HP</label>
+                                <h5>{{ $visitor->contact }}</h5>
+                                <br>
                                 <label for="">Fungsi Yang Dikunjungi</label>
                                 <h5>{{ $visitor->fungsi->nama_fungsi }}</h5>
                                 <br>

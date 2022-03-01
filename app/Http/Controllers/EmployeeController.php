@@ -44,7 +44,8 @@ class EmployeeController extends Controller
             [
                 'namakaryawan' => 'required|min:3|max:100',
                 'nopegawai'=>'required',
-                'fungsiid'=>'required'
+                'fungsiid'=>'required',
+                'email'=>'required'
 
             ],
             [
@@ -53,6 +54,7 @@ class EmployeeController extends Controller
                 'namakaryawan.max' => 'max 100 kata',
                 'nopegawai.required' => 'Nomor Pegawai Diperlukan',
                 'fungsiid.required' => 'Nama Fungsi Diperlukan',
+                'email.required' => 'Email Diperlukan',
 
             ]
         );
@@ -62,6 +64,7 @@ class EmployeeController extends Controller
                 'nama_karyawan' => $request->namakaryawan,
                 'no_karyawan' => $request->nopegawai,
                 'fungsi_id' => $request->fungsiid,
+                'email' => $request->email
             ]
         );
         return redirect('/employee')->with('status', 'Berhasil Ditambahkan');
@@ -103,7 +106,8 @@ class EmployeeController extends Controller
             [
                 'namakaryawan' => 'required|min:3|max:100',
                 'nopegawai'=>'required',
-                'fungsiid'=>'required'
+                'fungsiid'=>'required',
+                'email'=>'required'
 
             ],
             [
@@ -112,6 +116,7 @@ class EmployeeController extends Controller
                 'namakaryawan.max' => 'max 100 kata',
                 'nopegawai.required' => 'Nomor Pegawai Diperlukan',
                 'fungsiid.required' => 'Nama Fungsi Diperlukan',
+                'email.required' => 'Email Diperlukan',
 
             ]
         );
@@ -121,6 +126,7 @@ class EmployeeController extends Controller
                 'nama_karyawan' => $request->namakaryawan,
                 'no_karyawan' => $request->nopegawai,
                 'fungsi_id' => $request->fungsiid,
+                'email' => $request->email
             ]
         );
         return redirect('/employee')->with('status', 'Berhasil Diperbarui');

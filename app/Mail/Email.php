@@ -29,6 +29,6 @@ class Email extends Mailable
      */
     public function build()
     {
-        return $this->subject('Tamu Kunjungan')->view('emails.Email');
+        return $this->subject('Tamu Kunjungan PT Pertamina Patra Niaga')->view('emails.Email');
     }
 }
