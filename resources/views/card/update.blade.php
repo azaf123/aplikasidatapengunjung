@@ -38,22 +38,22 @@
                         </div>
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form form-horizontal" action="{{ url('/card/'.$card->id)}}" method="POST">
+                            <form class="form form-horizontal" action="{{ url('/card/'.$card->id)}}" method="POST">
                                     @csrf
                                     @method('PATCH')
                                     <div class="form-body">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                <label>Nomor Kartu</label>
+                                                <label>Nama Kartu</label>
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="form-group has-icon-left">
                                                     <div class="position-relative">
-                                                        <input type="text" class="form-control @error('nokartu') is-invalid @enderror" placeholder="Masukkan Nama card" id="first-name-icon" name="nokartu" value="{{$card->no_kartu}}">
+                                                        <input type="text" class="form-control @error('namakartu') is-invalid @enderror" placeholder="Masukkan Nama card" id="first-name-icon" name="namakartu" value="{{$card->no_kartu}}">
                                                         <div class="form-control-icon">
                                                             <i class="bi bi-person"></i>
                                                         </div>
-                                                        @error('nokartu')
+                                                        @error('namakartu')
                                                         <div class="invalid-feedback">
                                                             {{$message}}
                                                         </div>
@@ -77,15 +77,6 @@
         <!-- // Basic Horizontal form layout section end -->
     </div>
 
-    <footer>
-        <div class="footer clearfix mb-0 text-muted">
-            <div class="float-start">
-                <p>2021 &copy; Mazer</p>
-            </div>
-            <div class="float-end">
-                <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a href="http://ahmadsaugi.com">A. Saugi</a></p>
-            </div>
-        </div>
-    </footer>
+    
 </div>
 @endsection

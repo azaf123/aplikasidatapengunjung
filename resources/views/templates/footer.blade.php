@@ -2,7 +2,7 @@
     <div id="main">
     <div class="footer clearfix mb-0 text-muted">
         <div class="float-start">
-            <p>2021 &copy; Fakijal Corporation</p>
+            <p>2021 &copy; ALZAJAL Corporation</p>
         </div>
 
     </div>

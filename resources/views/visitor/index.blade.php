@@ -66,10 +66,11 @@
                                 <th>Fungsi Yang Dikunjungi</th>
                                 <th>Nama Karyawan</th>
                                 <th>Keperluan</th>
-                                <th>Tanggal dan Waktu </th>
-                                <th>Nomor Kartu </th>
                                 <th>Nomor Kontak</th>
+                                <th>Nomor Kartu </th>
+                                
                                 <th>Status </th>
+                                <th>Tanggal dan Waktu </th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -83,13 +84,13 @@
                                 <td>{{ $item->fungsi->nama_fungsi }}</td>
                                 <td>{{ $item->employee->nama_karyawan }}</td>
                                 <td>{{ (strlen($item->keperluan)>20) ? substr($item -> keperluan, 0,20) . '...':$item->keperluan }}</td>
-                                <td>{{ $item->created_at }}</td>
-                                <td>{{ $item->card->no_kartu }}</td>
                                 <td>{{ $item->contact}}</td>
+                                <td>{{ $item->card->no_kartu }}</td>
                                 <td>@if($item->status == 'datang')<span class="badge rounded-pill bg-primary">{{ $item->status }}</span>
                                     @else<span class="badge rounded-pill bg-danger">{{ $item->status }}
                                         @endif
                                 </td>
+                                <td>{{ $item->created_at }}</td>
                                 <td>
                                     <a href="{{url('/visitor/'.$item->id).'/edit'}}" class="btn btn-info"><i class="fa-regular fa-pen-to-square"></i></a>
                                     <form method="POST" action="{{url('/visitor/'.$item->id)}}">

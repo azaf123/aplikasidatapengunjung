@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Officer;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
 class OfficerController extends Controller
 {
     /**
@@ -40,24 +40,30 @@ class OfficerController extends Controller
             [
                 'namapetugas' => 'required|min:3|max:100',
                 'nopegawai'=> 'required',
-                // 'username'=>'required',
-                // 'password'=>'required'
+                'email' => 'required|unique:users',
+                'password' => 'required|alpha_num',
 
             ],
             [
                 'namapetugas.required' => 'Nama Petugas dibutuhkan',
                 'namapetugas.min' => 'min 3 kata',
                 'namapetugas.max' => 'max 100 kata',
-                'nopegawai.required' => 'Nomor Pegawai dibutuhkan'
-
+                'nopegawai.required' => 'Nomor Pegawai dibutuhkan',
+                'email.required' => 'Email harus diisi ya',
+                'email.unique' => 'Email nya udah ada ni',
+                'password.required' => 'password must be required',
+                'password.min' => 'min 8 character',
+                'password.max' => 'max 10 character',
             ]
         );
 
         Officer::create(
             [
                 'nama_petugas' => $request->namapetugas,
-                'no_pegawai'=> $request->nopegawai
-
+                'no_pegawai'=> $request->nopegawai,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'level' => 'admin'
             ]
         );
         return redirect('/officer')->with('status', 'Berhasil Ditambahkan');

@@ -124,8 +124,9 @@ class VisitorController extends Controller
     public function edit(Visitor $visitor)
     {
         // return $visitor;
-        $visitor = Visitor::all();
-        return view('visitor.update',compact('visitor'));
+        $fungsi= Fungsi::all();
+        $employee= Employee::all();
+        return view('visitor.update',compact('visitor','fungsi','employee'));
     }
 
     /**
@@ -140,20 +141,16 @@ class VisitorController extends Controller
         
         $request->validate(
             [
-                'image'=> 'required',
                 'namavisitor' => 'required|min:3|max:100',
                 'alamat'=>'required',
                 'fungsiid'=>'required',
                 'karyawanid'=>'required',
                 'keperluan'=>'required',
-                'nokartu'=>'required',
                 'status'=>'required',
                 'nokontak'=>'required'
-
-
             ],
             [
-                '.required',
+               
                 'namavisitor.required' => 'Nama Karyawan Diperlukan',
                 'namavisitor.min' => 'min 3 kata',
                 'namavisitor.max' => 'max 100 kata',
@@ -165,40 +162,21 @@ class VisitorController extends Controller
 
             ]
         );
-
-    
-        if ($request->image != null) {
-            $img = $request->file('image'); //mengambil dari form
-            $file_name = time() . "_" . $img->getClientOriginalName();
-            $img->move('img', $file_name);
             Visitor::where('id', $visitor->id)->update(
                 [
-                    'image'=>$file_name,
-                    'nama_pengunjung' => $request->namavisitor,
-                    'alamat' => $request->alamat,
-                    'fungsi_id' => $request->fungsiid,
-                    'employee_id'=> $request->karyawanid,
-                    'keperluan'=>$request->keperluan,
-                    'card_id'=>$request->nokartu,
-                    'status'=>$request->status,
-                    'contact'=>$request->nokontak
+                'nama_pengunjung' => $request->namavisitor,
+                'alamat' => $request->alamat,
+                'fungsi_id' => $request->fungsiid,
+                'employee_id'=> $request->karyawanid,
+                'keperluan'=>$request->keperluan,
+                'status'=>$request->status,
+                'contact'=>$request->nokontak
                 ]
-            );
-        } else {
-            Visitor::where('id', $visitor->id)->update(
-                [
-                    'nama_pengunjung' => $request->namavisitor,
-                    'alamat' => $request->alamat,
-                    'fungsi_id' => $request->fungsiid,
-                    'employee_id'=> $request->karyawanid,
-                    'keperluan'=>$request->keperluan,
-                    'card_id'=>$request->nokartu,
-                    'status'=>$request->status,
-                ]
-            );
-        }
-        
+                );
       
+            
+          
+    
         return redirect('/visitor')->with('status', 'Berhasil Diperbarui');
     }
 

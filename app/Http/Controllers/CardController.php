@@ -73,7 +73,7 @@ class CardController extends Controller
      */
     public function edit(Card $card)
     {
-        $card = Card::all();
+        
         return view('card.update', compact('card'));
     }
 

@@ -60,54 +60,72 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <label>Nomor Pegawai</label>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="form-group has-icon-left">
-                                                        <div class="position-relative">
-                                                            <input type="text" class="form-control @error('nopegawai') is-invalid @enderror" placeholder="Masukkan Nomor Pegawai" id="first-name-icon" name="nopegawai" value="{{$employee->no_karyawan}}">
-                                                            <div class="form-control-icon">
-                                                                <i class="bi bi-person"></i>
-                                                            </div>
-                                                            @error('nopegawai')
-                                                            <div class="invalid-feedback">
-                                                                {{$message}}
-                                                            </div>
-                                                            @enderror
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Nomor Pegawai</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-group has-icon-left">
+                                                    <div class="position-relative">
+                                                        <input type="text" class="form-control @error('nopegawai') is-invalid @enderror" placeholder="Masukkan Nomor Pegawai" id="first-name-icon" name="nopegawai" value="{{$employee->no_karyawan}}">
+                                                        <div class="form-control-icon">
+                                                            <i class="bi bi-person"></i>
                                                         </div>
+                                                        @error('nopegawai')
+                                                        <div class="invalid-feedback">
+                                                            {{$message}}
+                                                        </div>
+                                                        @enderror
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <label>Fungsi</label>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="form-group has-icon-left">
-                                                        <div class="position-relative">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Fungsi</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-group has-icon-left">
+                                                    <div class="position-relative">
                                                         <select class="form-control @error('fungsiid') is-invalid @enderror" id="fungsiid" name="fungsiid">
                                                             <!-- using FOREIGN ID -->
                                                             @foreach ($fungsi as $item)
                                                             <option value="{{$item->id}}">{{$item->nama_fungsi}}</option>
                                                             @endforeach
                                                         </select>
-                                                            <div class="form-control-icon">
-                                                                <i class="bi bi-person"></i>
-                                                            </div>
-                                                            @error('fungsiid')
-                                                            <div class="invalid-feedback">
-                                                                {{$message}}
-                                                            </div>
-                                                            @enderror
+                                                        <div class="form-control-icon">
+                                                            <i class="bi bi-person"></i>
                                                         </div>
+                                                        @error('fungsiid')
+                                                        <div class="invalid-feedback">
+                                                            {{$message}}
+                                                        </div>
+                                                        @enderror
                                                     </div>
                                                 </div>
-
-                                                <div class="col-12 d-flex justify-content-end">
-                                                    <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
-                                                    <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-group has-icon-left">
+                                                    <div class="position-relative">
+                                                        <input type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Masukkan Email" id="first-name-icon" name="email" value="{{$employee->email}}">
+                                                        <div class="form-control-icon">
+                                                            <i class="bi bi-person"></i>
+                                                        </div>
+                                                        @error('email')
+                                                        <div class="invalid-feedback">
+                                                            {{$message}}
+                                                        </div>
+                                                        @enderror
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <div class="col-12 d-flex justify-content-end">
+                                                <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
+                                                <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                            </div>
                                         </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>

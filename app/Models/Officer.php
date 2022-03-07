@@ -9,5 +9,5 @@ class Officer extends Model
 {
     use HasFactory;
     protected $table = 'officers';
-    protected $fillable = ['nama_petugas','no_pegawai','username','password','level','created_at','updated_at'];
+    protected $fillable = ['nama_petugas','no_pegawai','username','password','level','email','created_at','updated_at'];
 }

@@ -201,7 +201,7 @@
                     </div>
                     <!-- Webcam -->
                     <div class="col mt-5">
-                        <div id="my_camera"><button style="margin-left: 42px; border:none;" type=button class="btn btn-secondary mt-4" value="" onClick="configure()"><img src="{{asset('/assets/images/landingpage/camera.png')}}" alt=""><br><b>
+                        <div id="my_camera"><button style="margin-left: 42px; border:none;" type=button class="btn btn-secondary mt-4" value="" onClick="configure()"><img src="{{asset('/assets/images/landingpage/camera.png')}}" style="max-width: 80%;" alt=""><br><b>
                                     <h6>Buka Kamera</h6>
                                 </b></button></div>
                         <br>

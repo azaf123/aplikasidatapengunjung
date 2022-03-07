@@ -60,17 +60,54 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                            </div>
+                                            <div class="col-md-4">
                                                 <label>Nomor Pegawai</label>
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="form-group has-icon-left">
                                                     <div class="position-relative">
-                                                        <input type="text" class="form-control @error('namapetugas') is-invalid @enderror" placeholder="Masukkan Nomor Pegawai" id="first-name-icon" name="nopegawai" value="{{$officer->no_pegawai}}">
+                                                        <input type="text" class="form-control @error('nopegawai') is-invalid @enderror" placeholder="Masukkan Nomor Pegawai" id="first-name-icon" name="nopegawai" value="{{$officer->no_pegawai}}">
                                                         <div class="form-control-icon">
                                                             <i class="bi bi-person"></i>
                                                         </div>
-                                                        @error('namapetugas')
+                                                        @error('nopegawai')
+                                                        <div class="invalid-feedback">
+                                                            {{$message}}
+                                                        </div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-group has-icon-left">
+                                                    <div class="position-relative">
+                                                        <input type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Masukkan Email Baru" id="first-name-icon" name="nopegawai" value="{{$officer->email}}">
+                                                        <div class="form-control-icon">
+                                                            <i class="bi bi-person"></i>
+                                                        </div>
+                                                        @error('email')
+                                                        <div class="invalid-feedback">
+                                                            {{$message}}
+                                                        </div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Password</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-group has-icon-left">
+                                                    <div class="position-relative">
+                                                        <input type="text" class="form-control @error('password') is-invalid @enderror" placeholder="Masukkan Password Baru" id="first-name-icon" name="nopegawai">
+                                                        <div class="form-control-icon">
+                                                            <i class="bi bi-person"></i>
+                                                        </div>
+                                                        @error('password')
                                                         <div class="invalid-feedback">
                                                             {{$message}}
                                                         </div>

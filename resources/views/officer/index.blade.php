@@ -57,6 +57,8 @@
                                 <th>No</th>
                                 <th>Nama Petugas</th>
                                 <th>No Pegawai</th>
+                                <th>Email</th>
+                                <th>Password</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -66,7 +68,8 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->nama_petugas }}</td>
                                 <td>{{ $item->no_pegawai }}</td>
-                               
+                                <td>{{ $item->email }}</td>
+                                <td>{{ $item->password }}</td>
                                 
                                 <td>
                                     <a href="{{url('/officer/'.$item->id).'/edit'}}" class="btn btn-info"><i class="fa-regular fa-pen-to-square"></i></a>
@@ -86,15 +89,6 @@
         </section>
     </div>
 
-    <footer>
-        <div class="footer clearfix mb-0 text-muted">
-            <div class="float-start">
-                <p>2021 &copy; Mazer</p>
-            </div>
-            <div class="float-end">
-                <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a href="http://ahmadsaugi.com">A. Saugi</a></p>
-            </div>
-        </div>
-    </footer>
+   
 </div>
 @endsesction

@@ -48,7 +48,7 @@
                                             <div class="col-md-8">
                                                 <div class="form-group has-icon-left">
                                                     <div class="position-relative">
-                                                        <input type="text" class="form-control @error('nokartu') is-invalid @enderror" placeholder="Masukkan Nama kartu" id="first-name-icon" name="nokartu">
+                                                        <input type="text" class="form-control @error('nokartu') is-invalid @enderror" placeholder="Masukkan Nomor Kartu" id="first-name-icon" name="nokartu">
                                                         <div class="form-control-icon">
                                                             <i class="bi bi-person"></i>
                                                         </div>
@@ -89,15 +89,6 @@
         <!-- // Basic Horizontal form layout section end -->
     </div>
 
-    <footer>
-        <div class="footer clearfix mb-0 text-muted">
-            <div class="float-start">
-                <p>2021 &copy; Mazer</p>
-            </div>
-            <div class="float-end">
-                <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a href="http://ahmadsaugi.com">A. Saugi</a></p>
-            </div>
-        </div>
-    </footer>
+   
 </div>
 @endsection

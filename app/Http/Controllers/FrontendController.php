@@ -68,7 +68,10 @@ class FrontendController extends Controller
         fwrite($fp, $dekod);
         fclose($fp);
         $request->image = $file_name;
-        Visitor::create(
+
+        
+        $visitor= Visitor::create(
+            
             [
                 'image' => $file_name,
                 'nama_pengunjung' => $request->namavisitor,
@@ -85,6 +88,7 @@ class FrontendController extends Controller
             'status' => 'aktif'
         ]);
         $namakaryawan = Employee::where('id', $request->karyawanid)->first();
+        
 // mail
         $details =[
             'title'=>'Tamu Kunjungan',
@@ -93,6 +97,9 @@ class FrontendController extends Controller
             'alamat'=>$request->alamat,
             'keperluan'=>$request->keperluan,
             'nokontak'=>$request->nokontak,
+            'waktu'=>$visitor->created_at,
+            'image'=>$file_name
+            
             
         ];
         $email = Employee::where('id', $request->karyawanid)->first();

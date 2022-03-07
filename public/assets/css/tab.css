@@ -1,0 +1,184 @@
+@media (min-width: 768px) and (max-width: 1200px) {
+    @font-face {
+        font-family: "Poppins";
+        src: url(./fonts/Poppins/Poppins-Medium.ttf);
+    }
+
+    /* Base */
+    #base {
+        background-image: url(bg1.jpeg);
+        padding-top: 5px;
+        padding-bottom: 28px;
+    }
+
+    #base .wadahluar {
+        background-color: rgba(128, 128, 128, 0.6);
+        height: auto;
+        width: auto;
+        padding: 28px;
+        margin-top: 20px;
+        border-radius: 16px;
+    }
+
+    #base .btn-primary {
+        height: 100px;
+        width: 245px;
+        border-radius: 16px;
+        background-color: white;
+        border: none;
+        margin-bottom: 7%;
+    }
+
+    #base .title {
+        background-color: #32599C;
+        height: 100px;
+        border-radius: 16px;
+        text-align: center;
+        align-self: center;
+    }
+
+    #base .title h1 {
+        padding-top: 30.5px;
+        color: white;
+        font-family: 'poppins';
+        font-weight: 340;
+    }
+
+    #base .btn-success {
+        /* margin-top: 5.5px; */
+        height: 95px;
+        width: 245px;
+        border-radius: 16px;
+    }
+
+    #base .btnbook img {
+        margin-top: 2px;
+        margin-bottom: 8px;
+    }
+
+    #base .btn-danger {
+        margin-top: 7%;
+        height: 95px;
+        width: 245px;
+        border-radius: 16px;
+    }
+
+    #base .btnid img {
+        margin-top: 5px;
+        margin-bottom: 14px;
+    }
+
+    #base .text {
+        font-size: 10px;
+        font-family: 'Poppins';
+        font-weight: 300;
+    }
+
+    #base .carousel {
+        /* margin-top: 5.5px; */
+    }
+
+    #base .carousel-inner img {
+        width: 875px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 16px;
+    }
+
+    #base .layer {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.59), rgba(196, 196, 196, 0));
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 16px;
+        color: white;
+        padding-top: 40px;
+        padding-left: 50px;
+    }
+
+    #base .layer h1 {
+        font-size: 10px;
+        font-family: 'Poppins';
+    }
+
+    #base .layer h2 {
+        font-size: 15px;
+        font-family: 'Poppins';
+    }
+
+    #base .carousel-indicators .active {
+        background-color: #408458;
+    }
+
+    #base .carousel-indicators [data-bs-target] {
+        width: 7.5px;
+        height: 7.5px;
+        border-radius: 50%;
+        margin-bottom: 34px;
+    }
+
+    #base .carousel-indicators {
+        justify-content: start;
+        height: 7px;
+        margin-left: 35px;
+        margin-bottom: 34px;
+    }
+
+    #base .btnright {
+        color: #408458;
+        background-color: white;
+        border-radius: 50px;
+        font-size: 40px;
+        margin-left: auto;
+        width: 20px;
+        height: 20px;
+    }
+
+    #base .btnleft {
+        color: #408458;
+        background-color: white;
+        border-radius: 50px;
+        font-size: 40px;
+        margin-right: auto;
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Base2 */
+    #base2 .wadahluar {
+        /* background-color: rgba(128, 128, 128, 0.6); */
+        height: auto;
+        width: 100%;
+        /* padding: 38px; */
+        /* margin-top: 84px; */
+        /* border-radius: 16px; */
+    }
+
+    #base2 .title {
+        background-color: #32599C;
+        height: 100px;
+        border-radius: 16px;
+        text-align: center;
+        align-self: center;
+        margin-top: 30px;
+    }
+
+    #base2 .title h1 {
+        padding-top: 6.5%;
+        color: white;
+        font-size: 50px;
+        font-weight: 340;
+    }
+
+    #base2 .wadahkiri {
+        height: 100%;
+        border-radius: 16px;
+        margin-top: 31px;
+        margin-left: 12px;
+    }
+
+    /* Base3 */
+
+}
