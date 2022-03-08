@@ -81,10 +81,6 @@ class VisitorController extends Controller
         $file_name = time()."_". $img->getClientOriginalName(); //mengambil dan mengedit nama file dari form
         $img->move('img', $file_name); //proses memasukkan image ke dalam direktori laravel
         
-        
-        
-        
-       
         Visitor::create(
             [
                 'image'=>$file_name,

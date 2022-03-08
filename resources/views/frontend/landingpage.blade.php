@@ -1,6 +1,6 @@
 @extends('templatefrontend.header')
 @section('title', 'Landing Page')
-<section id="base" style="background-image: url('{{url('/bg1.jpeg')}}');">
+<section id="base" style="background-image: url('{{url('/bg5.jpeg')}}'); background-size:cover;">
     <div class="container">
       <div class="wadahluar">
         <div class="row">
@@ -9,7 +9,8 @@
               <a href="#">
                 <button type="button" class="btn btn-primary">
                   <img
-                    src="{{asset('/assets/images/landingpage/ptpt.png')}}"
+                    src="{{asset('/assets/images/landingpage/pertamina-patra-niaga.png')}}"
+                    
                     alt="add img"
                   />
                 </button>

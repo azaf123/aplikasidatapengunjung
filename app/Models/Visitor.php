@@ -17,7 +17,7 @@ class Visitor extends Model
     }
 
     public function employee(){
-        return $this->belongsTo(Employee::class);
+        return $this->belongsTo('App\Models\Employee');
     }
     public function card(){
         return $this->belongsTo(Card::class);
