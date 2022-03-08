@@ -9,8 +9,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Visitor extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id';
     protected $table = 'visitors';
-    protected $fillable = ['image','nama_pengunjung','alamat','fungsi_id','employee_id','keperluan','petugas_id','card_id','status','contact','created_at','updated_at'];
+    protected $fillable = ['id','image','nama_pengunjung','alamat','fungsi_id','employee_id','keperluan','petugas_id','card_id','status','contact','created_at','updated_at'];
 
     public function fungsi(){
         return $this->BelongsTo('App\Models\Fungsi');
