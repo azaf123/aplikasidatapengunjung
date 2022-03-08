@@ -1,10 +1,10 @@
 @extends('templatefrontend.header')
 @section('title', 'Landing Page')
-<section id="base" style="background-image: url('{{url('/bg5.jpeg')}}');  ">
+<section id="base" style="background-image: url('{{url('/bg5.jpeg')}}'); background-size:cover; ">
     <div class="container">
       <div class="wadahluar">
         <div class="row">
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-md-3 col-3">
             <div class="btnadd">
               <a href="#">
                 <button type="button" class="btn btn-primary">
@@ -24,22 +24,20 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-md-3 col-3">
             <div class="btnbook">
               <a href="{{url('/isibuku')}}">
                 <button type="button" class="btn btn-success" >
-                  <img src="{{url('/assets/images/landingpage/book.png')}}" alt="book img" /><br /><b
-                    >Isi Buku Tamu</b
-                  >
+                  <img src="{{url('/assets/images/landingpage/book.png')}}" alt="book img" />
+                  <div class="text"><b>Isi Buku Tamu</b></div>                  
                 </button>
               </a>
             </div>
             <div class="btnid">
               <a href="{{url('/keluarpengunjungform')}}">
                 <button type="button" class="btn btn-danger">
-                  <img src="{{url('/assets/images/landingpage/id.png')}}" alt="id img" /><br /><b
-                    >Ambil Tanda Pengenal</b
-                  >
+                  <img src="{{url('/assets/images/landingpage/id.png')}}" alt="id img" />
+                  <div class="text"><b>Ambil Tanda Pengenal</b></div> 
                 </button>
               </a>
             </div>

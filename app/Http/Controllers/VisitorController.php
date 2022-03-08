@@ -91,7 +91,7 @@ class VisitorController extends Controller
                 'keperluan'=>$request->keperluan,
                 'card_id'=>$request->nokartu,
                 'status'=>$request->status,
-                'contact'=>$request->nokontak,
+                'contact'=>$request->nokontak
             ]);
             Card::where('id', $request->nokartu)->update([
                 'status'=> 'aktif'

@@ -17,13 +17,7 @@
             <div class="col-12 col-md-6 order-md-1 order-last">
                 <h3>Laporan Data Pengunjung</h3>
                 <p class="text-subtitle text-muted">PT Pertamina Patra Niaga Regional Sumbagsel</p>
-                <div class="row mb-3">
-                    <div class="col">
-                        <a href="" id="printPageButton" onclick="window.print();" class="btn btn-primary" role="button">
-                            Cetak Data Laporan
-                        </a>
-                    </div>
-                </div>
+                
             </div>
            
         </div>
@@ -72,6 +66,14 @@
                         <a href="{{url('/laporan')}}" id="printPageButton" onclick="" class="btn btn-secondary" role="button">
                             Kembali
                         </a>
+                    </div>
+                    <div class="col-lg-2">
+                        <a href="" id="printPageButton" onclick="window.print();" class="btn btn-primary" role="button">
+                        <i class="fa-solid fa-print"></i>    
+                        Cetak Data Laporan
+                            
+                        </a>
+                 
                     </div>
                 </div>
     </div>
