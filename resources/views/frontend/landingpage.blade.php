@@ -1,6 +1,6 @@
 @extends('templatefrontend.header')
 @section('title', 'Landing Page')
-<section id="base" style="background-image: url('{{url('/bg5.jpeg')}}'); background-size:cover;">
+<section id="base" style="background-image: url('{{url('/bg5.jpeg')}}');  ">
     <div class="container">
       <div class="wadahluar">
         <div class="row">
@@ -80,7 +80,7 @@
                     <h2>
                       <b><br />Selamat Datang</b>
                     </h2>
-                    <h1>di <b>Pertamina Patra Niaga</b></h1>
+                    <h1>di <b>PT Pertamina Patra Niaga</b></h1>
                     <h1><b>Regional Sumbagsel</b></h1>
                   </div>
                 </div>
