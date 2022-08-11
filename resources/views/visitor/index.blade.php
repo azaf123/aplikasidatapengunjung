@@ -1,7 +1,17 @@
 @extends('templates.master')
 @section('title', 'Data Visitor')
 
+
 @section('main')
+<style>
+    header a{
+       
+        width: 230px;
+      
+
+    }
+
+</style>
 <div id="main">
     <header class="mb-3">
         <a href="#" class="burger-btn d-block d-xl-none">
@@ -18,26 +28,36 @@
                     <div class="row">
                         <div class="col">
                             @if (session('status'))
-                            <div class="alert alert-success d-flex align-items-center" role="alert">
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                <center>{{ session('status') }}</center>
-                            </div>
-
+                           <div class="alert alert-success">
+                                {{ session('status') }}   
+                           </div>
                             @endif
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col">
-                            <a href="{{ url('/visitor/create')}}" class="btn btn-primary" role="button">
-                                <i class="fa-regular fa-plus"></i> Tambah Pengunjung
+                        <div class="col-lg-5">
+                            <a href="{{ url('/master-data/visitor/create')}}" class="btn btn-primary" role="button">
+                            <span style="margin-right: 10px;"><span class="fa-fw select-all fas"></span></span> Tambah Pengunjung
                             </a>
                         </div>
-                        <div class="col">
+                        <div class="col-lg-5">
                             <a href="{{ url('/pengunjungkeluar')}}" class="btn btn-primary" role="button">
-                                <i class="fa-regular fa-plus"></i> Pengunjung Keluar
+                            <span style="margin-right: 10px;">
+                            <span class="fa-fw select-all fas"></span></span> Keluar Pengunjung
+                            </a>
+                        </div>
+                        
+                    </div>
+                    
+                   
+                    <div class="row mb-3">
+                    <div class="col-lg-5">
+                            <a href="{{ url('master-data/exportvisitor')}}" class="btn btn-secondary" role="button">
+                            <span style="margin-right: 10px;"> <span class="fa-fw select-all fas"></span></span> Export Data 
                             </a>
                         </div>
                     </div>
+                    
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -68,9 +88,9 @@
                                 <th>Keperluan</th>
                                 <th>Nomor Kontak</th>
                                 <th>Nomor Kartu </th>
-                                
                                 <th>Status </th>
-                                <th>Tanggal dan Waktu </th>
+                                <th>Waktu Datang </th>
+                                <th>Waktu Pulang </th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -83,7 +103,7 @@
                                 <td>{{ $item->alamat }}</td>
                                 <td>{{ $item->fungsi->nama_fungsi }}</td>
                                 <td>{{ $item->employee->nama_karyawan }}</td>
-                                <td>{{ (strlen($item->keperluan)>20) ? substr($item -> keperluan, 0,20) . '...':$item->keperluan }}</td>
+                                <td>{{ (strlen($item->keperluan)>10) ? substr($item -> keperluan, 0,8) . '...':$item->keperluan }}</td>
                                 <td>{{ $item->contact}}</td>
                                 <td>{{ $item->card->no_kartu }}</td>
                                 <td>@if($item->status == 'datang')<span class="badge rounded-pill bg-primary">{{ $item->status }}</span>
@@ -91,16 +111,17 @@
                                         @endif
                                 </td>
                                 <td>{{ $item->created_at }}</td>
+                                <td>{{$item->status =='datang'?"sedang dikantor":$item->updated_at}}</td>
                                 <td>
-                                    <a href="{{url('/visitor/'.$item->id).'/edit'}}" class="btn btn-info"><i class="fa-regular fa-pen-to-square"></i></a>
-                                    <form method="POST" action="{{url('/visitor/'.$item->id)}}">
+                                    <a href="{{url('/master-data/visitor/'.$item->id).'/edit'}}" class="btn btn-info"><span class="fa-fw select-all fas"></span></a>
+                                    <form method="POST" action="{{url('/master-data/visitor/'.$item->id)}}">
                                         @csrf
-                                        @method("delete")
+                                        @method("delete") 
 
-                                        <button type="submit" class="btn btn-danger mt-3"><i class="fa-solid fa-trash-can"></i></button>
+                                        <button onclick="return confirm('Apakah anda yakin')" type="submit" class="btn btn-danger mt-3"><span class="fa-fw select-all fas"></span></button>
                                     </form>
-                                    <a href="{{url('/visitor/' . $item->id)}}">
-                                        <button type="submit" class="btn btn-danger"><i class="fa-solid fa-eye"></i></button>
+                                    <a href="{{url('/master-data/visitor/' . $item->id)}}">
+                                        <button type="submit" class="btn btn-danger"><span class="fa-fw select-all fas"></span></button>
                                     </a>
                                 </td>
                             </tr>
@@ -108,7 +129,7 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </div>   
 
         </section>
     </div>

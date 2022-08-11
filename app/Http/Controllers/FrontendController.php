@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Email;
 use App\Models\Employee;
+use Error;
+use Image;
+use RealRashid\SweetAlert\Facades\Alert;
+use GuzzleHttp;
 
 class FrontendController extends Controller
 {
@@ -17,6 +21,10 @@ class FrontendController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+    }
     public function index()
     {
         return view('frontend.landingpage');
@@ -24,13 +32,13 @@ class FrontendController extends Controller
     public function isiBuku()
     {
         $fungsi = Fungsi::all();
+        $visitor = Visitor::all();
         $card = Card::where('status', 'inaktif')->get();
-        return view('frontend.isibuku', compact('fungsi', 'card'));
+        return view('frontend.isibuku', compact('fungsi', 'card','visitor'));
     }
 
     public function isiBukuform(Request $request)
     {
-
         // return $request;
         $request->validate(
             [
@@ -59,17 +67,50 @@ class FrontendController extends Controller
 
             ]
         );
+// $path = 'public/images/';
+// $token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiVVNFUiIsImlkIjoxODQsImtleSI6NTM3MzUzNTI5LCJpYXQiOjE2NTI1NDkyNDh9.5n5j20gafq9hYAPGFsx7qOKXpHHXF2Seq6C5fCmOisc";
+// $type = 'ktp';
+// $url = 'https://api.aksarakan.com/document';
+// if(!$path) {
+//     throw new Error('path not set');
+// }
+// if(!$token) {
+//     throw new Error('path not set');
+// }
+// $client = new \GuzzleHttp\Client();
+// $response = $client->request('PUT', "$url/$type", [
+//     'headers' => ['Authentication' => "bearer $token"],
+//     'multipart' => [
+//         [
+//             'name'     => 'file',
+//             'contents' => fopen($path, 'rb'),
+//             'filename' => basename($path)
+//         ],
+//     ]
+// ]);
+
+// var_dump(json_decode($response->getBody()->getContents(), true));
+        // webcam
         $reqfoto = $request->image;
         $foto = substr($reqfoto, strpos($reqfoto, ',') + 1);
-        $dekod = base64_decode($foto);
-        $file_name = "img- " . time() . rand(11111, 99999) . ".png";
-        $folder = public_path('img/');
-        $fp = fopen($folder . $file_name, 'w');
-        fwrite($fp, $dekod);
-        fclose($fp);
-        $request->image = $file_name;
+        $foto = base64_decode($foto);
+        $foto = \Image::make($foto);
+        $logo = \Image::make(public_path('assets/images/logo/pertamina.png'));
+        $logo->resize(200,100);
+        $logo->greyscale();
+        $logo->opacity(50);
+        $foto->insert($logo, 'center')->stream();
+        $file_name = time() . '.png';
+        $path = public_path() . '/img/' . $file_name;
+        file_put_contents($path, $foto);
+        
+        // end webcam
 
         
+
+      
+
+
         $visitor= Visitor::create(
             
             [
@@ -84,6 +125,7 @@ class FrontendController extends Controller
                 'contact'=>$request->nokontak
             ]
         );
+        
         Card::where('id', $request->nokartu)->update([
             'status' => 'aktif'
         ]);
@@ -105,7 +147,7 @@ class FrontendController extends Controller
         $email = Employee::where('id', $request->karyawanid)->first();
         Mail::to($email->email)->send(new Email($details));
         // return "Email Sent";
-        return redirect('/landingpage');
+        return redirect('/');
     }
 
     public function keluarPengunjungForm()
@@ -132,7 +174,7 @@ class FrontendController extends Controller
 
         ]);
 
-        return redirect('/landingpage');
+        return redirect('/');
     }
     /**
      * Show the form for creating a new resource.

@@ -42,18 +42,22 @@ class OfficerController extends Controller
                 'nopegawai'=> 'required',
                 'email' => 'required|unique:users',
                 'password' => 'required|alpha_num',
+                'password_confirmation' => 'required|same:password',
 
             ],
             [
-                'namapetugas.required' => 'Nama Petugas dibutuhkan',
-                'namapetugas.min' => 'min 3 kata',
-                'namapetugas.max' => 'max 100 kata',
-                'nopegawai.required' => 'Nomor Pegawai dibutuhkan',
-                'email.required' => 'Email harus diisi ya',
-                'email.unique' => 'Email nya udah ada ni',
-                'password.required' => 'password must be required',
-                'password.min' => 'min 8 character',
-                'password.max' => 'max 10 character',
+                'namapetugas.required' => 'Nama Petugas tidak boleh kosong',
+                'namapetugas.min' => 'Nama Petugas minimal 3 karakter',
+                'namapetugas.max' => 'Nama Petugas maksimal 100 karakter',
+                'nopegawai.required' => 'Nomor Pegawai tidak boleh kosong',
+                'email.required' => 'Email tidak boleh kosong',
+                'email.unique' => 'Email sudah digunakan',
+                'password.required' => 'Password tidak boleh kosong',
+                'password.alpha_num' => 'Password hanya boleh huruf dan angka',
+                'password_confirmation.required' => 'Konfirmasi Password tidak boleh kosong',
+                'password_confirmation.same' => 'Konfirmasi Password harus sama dengan Password',
+                
+            
             ]
         );
 
@@ -66,7 +70,8 @@ class OfficerController extends Controller
                 'level' => 'admin'
             ]
         );
-        return redirect('/officer')->with('status', 'Berhasil Ditambahkan');
+        toast('Berhasil Ditambahkan','success'); 
+        return redirect('/master-data/officer')->with('status');
     }
 
     /**
@@ -124,7 +129,8 @@ class OfficerController extends Controller
 
             ]
         );
-        return redirect('/officer')->with('status', 'Berhasil Diperbarui');
+        toast('Berhasil Diperbarui','success'); 
+        return redirect('/master-data/officer')->with('status');
     }
 
     /**
@@ -136,6 +142,9 @@ class OfficerController extends Controller
     public function destroy(Officer $officer)
     {
         Officer::destroy('id', $officer->id);
-        return redirect('/officer')->with('status','Berhasil Dihapus');
+        toast('Berhasil Dihapus','success'); 
+        return redirect('/master-data/officer')->with('status');
     }
+   
+
 }

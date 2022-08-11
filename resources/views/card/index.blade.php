@@ -28,8 +28,15 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <a href="{{ url('/card/create')}}" class="btn btn-primary" role="button">
-                            <i class="fa-regular fa-plus"></i> Tambah Kartu  
+                            <a href="{{ url('/master-data/card/create')}}" class="btn btn-primary" role="button">
+                            <span style="margin-right: 10px;"><span class="fa-fw select-all fas"></span></span> Tambah Kartu  
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <a href="{{ url('/master-data/importcardview')}}" class="btn btn-secondary" role="button">
+                            <span style="margin-right: 10px;"><span class="fa-fw select-all fas"></span></span>  Import data
                             </a>
                         </div>
                     </div>
@@ -71,11 +78,11 @@
 
 
                                 <td>
-                                    <a href="{{url('/card/'.$item->id).'/edit'}}" class="btn btn-info"><i class="fa-regular fa-pen-to-square"></i></a>
-                                    <form method="POST" action="{{url('/card/'.$item->id)}}">
+                                    <a href="{{url('/master-data/card/'.$item->id).'/edit'}}" class="btn btn-info"><span class="fa-fw select-all fas"></span></a></a>
+                                    <form method="POST" action="{{url('/master-data/card/'.$item->id)}}">
                                         @csrf
                                         @method("delete")
-                                        <button type="submit" class="btn btn-danger mt-3"><i class="fa-solid fa-trash-can"></i></button>
+                                        <button type="submit" class="btn btn-danger mt-3"><span class="fa-fw select-all fas"></span></button>
                                     </form>
                                 </td>
                             </tr>

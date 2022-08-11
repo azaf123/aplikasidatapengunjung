@@ -6,9 +6,10 @@
 
     /* Base */
     #base {
-        
-        padding-top: 5%;
-        padding-bottom: 64%;
+        background-image: url(bg1.jpeg);
+        padding-top: 20px;
+        padding-bottom: 85px;
+        border-image-width: 100%;
     }
 
     #base .wadahluar {
@@ -71,9 +72,9 @@
     }
 
     #base .btnbook img {
-        margin-top: 2px;
-        margin-bottom: 8px;
-        height: 20px;
+        height: 50px;
+        width: 50px;
+        border-radius: 8px;
     }
 
     #base .btn-danger {
@@ -84,9 +85,9 @@
     }
 
     #base .btn-danger img{
-        margin-top: 4px;
-        margin-bottom: 8px;
-        height: 20px;
+        height: 50px;
+        width: 50px;
+        border-radius: 8px;
     }
 
     #base .text {
@@ -96,27 +97,20 @@
     }
 
     #base .carousel-inner img {
-        width: auto;
-        height: 205px;
-        object-fit: cover;
+        
+        height: 100%;
+        width: 100%;
         border-radius: 8px;
-        margin-top: 15px;
-        margin-left: 25px;
     }
 
     #base .layer {
+        height: 100%;
+        width: 100%;
+        border-radius: 8px;
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0.59), rgba(196, 196, 196, 0));
-        position: absolute;
         top: 0;
         left: 0;
-        width: auto;
-        height: 205px;
-        border-radius: 8px;
-        color: white;
-        padding-top: 40px;
-        padding-left: 25px;
-        margin-top: 15px;
-        margin-left: 25px;
+        z-index: 1;
     }
 
     #base .layer h1 {
@@ -147,28 +141,17 @@
         margin-bottom: 24px;
     }
 
-    #base .btnright {
-        color: #408458;
-        background-color: white;
-        border-radius: 50px;
-        font-size: 40px;
-        margin-left: auto;
-        width: 15px;
-        height: 15px;
+    #base .btnright i{
+        font-size: 30px;
+        color: #32599C;
     }
 
-    #base .btnleft {
-        color: #408458;
-        background-color: white;
-        border-radius: 50px;
-        font-size: 40px;
-        /* margin-right: auto; */
-        width: 15px;
-        height: 15px;
-        margin-left: 30px;
+    #base .btnleft i{
+        font-size: 30px;
+        color: #32599C;
     }
 
-    #base2 .title {
+    #base2 .title i{
         background-color: #32599C;
         height: 100px;
         border-radius: 18px;
@@ -182,5 +165,20 @@
         color: white;
         font-size: 28px;
         font-weight: 340;
+    }
+    #base2 .vr{
+        /* vr hidden */
+        height: 0;
+        width: 0;
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        margin-left: -50px;
+        margin-top: -100px;
+        margin-bottom: -50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+ 
     }
 }

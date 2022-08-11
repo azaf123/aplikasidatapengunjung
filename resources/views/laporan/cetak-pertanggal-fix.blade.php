@@ -17,7 +17,10 @@
             <div class="col-12 col-md-6 order-md-1 order-last">
                 <h3>Laporan Data Pengunjung</h3>
                 <p class="text-subtitle text-muted">PT Pertamina Patra Niaga Regional Sumbagsel</p>
-               
+               <p>
+                 Admin : {{ Auth::user()->name }}
+                </p>
+               </p>
             </div>
 
         </div>
@@ -40,7 +43,8 @@
                             <th>Fungsi Yang Dikunjungi</th>
                             <th>Nama Karyawan</th>
                             <th>Keperluan</th>
-                            <th>Tanggal dan Waktu Kunjungan</th>
+                            <th>Waktu Kedatangan</th>
+                            <th>Waktu Kepulangan</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -53,7 +57,9 @@
                             <td>{{ $item->fungsi->nama_fungsi }}</td>
                             <td>{{ $item->employee->nama_karyawan }}</td>
                             <td>{{ $item->keperluan }}</td>
+                            
                             <td>{{ $item->created_at }}</td>
+                            <td>{{$item->status =='datang'?"sedang dikantor":$item->updated_at}}</td>
 
                         </tr>
                         @endforeach
@@ -64,15 +70,14 @@
         </div>
         <div class="row mb-3">
                     <div class="col-lg-10">
-                        <a href="{{url('/cetakformpertanggal')}}" id="printPageButton" onclick="" class="btn btn-secondary" role="button">
+                        <a href="{{url('master-data/laporan/cetakformpertanggal')}}" id="printPageButton" onclick="" class="btn btn-secondary" role="button">
                             Kembali
                         </a>
                     </div>
                     <div class="col-lg-2">
                         <a href="" id="printPageButton" onclick="window.print();" class="btn btn-primary" role="button">
-                        <i class="fa-solid fa-print"></i>    
+                        <span class="fa-fw select-all fas"></span>   
                         Cetak Data Laporan
-                            
                         </a>
                  
                     </div>

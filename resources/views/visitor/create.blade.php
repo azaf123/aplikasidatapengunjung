@@ -38,7 +38,7 @@
                         </div>
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form form-horizontal" action="{{ url('/visitor')}}" method="POST" enctype="multipart/form-data">
+                                <form class="form form-horizontal" action="{{ url('/master-data/visitor')}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-body">
                                         <div class="row">
@@ -46,96 +46,86 @@
                                                 <label>Foto</label>
                                             </div>
                                             <div class="col-md-8">
-                                                <div class="form-group has-icon-left">
-                                                    <div class="position-relative">
-                                                        <input type="file" class="form-control @error('image') is-invalid @enderror" placeholder="Masukkan Foto" id="first-name-icon" name="image">
-                                                        <div class="form-control-icon">
-                                                            <i class="bi bi-person"></i>
-                                                        </div>
-                                                        @error('image')
-                                                        <div class="invalid-feedback">
-                                                            {{$message}}
-                                                        </div>
-                                                        @enderror
+                                                <div class="form-group">
+
+                                                    <input type="file" class="form-control @error('image') is-invalid @enderror" placeholder="Masukkan Foto" id="first-name-icon" name="image">
+
+                                                    @error('image')
+                                                    <div class="invalid-feedback">
+                                                        {{$message}}
                                                     </div>
+                                                    @enderror
+
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <label>Nama Visitor</label>
                                             </div>
                                             <div class="col-md-8">
-                                                <div class="form-group has-icon-left">
-                                                    <div class="position-relative">
-                                                        <input type="text" class="form-control @error('namavisitor') is-invalid @enderror" placeholder="Masukkan Nama Visitor" id="first-name-icon" name="namavisitor">
-                                                        <div class="form-control-icon">
-                                                            <i class="bi bi-person"></i>
-                                                        </div>
-                                                        @error('namavisitor')
-                                                        <div class="invalid-feedback">
-                                                            {{$message}}
-                                                        </div>
-                                                        @enderror
+                                                <div class="form-group">
+
+                                                    <input type="text" class="form-control @error('namavisitor') is-invalid @enderror" placeholder="Masukkan Nama Visitor" id="first-name-icon" name="namavisitor">
+
+                                                    @error('namavisitor')
+                                                    <div class="invalid-feedback">
+                                                        {{$message}}
                                                     </div>
+                                                    @enderror
+
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <label>Alamat</label>
                                             </div>
                                             <div class="col-md-8">
-                                                <div class="form-group has-icon-left">
-                                                    <div class="position-relative">
-                                                        <input type="text" class="form-control @error('alamat') is-invalid @enderror" placeholder="Masukkan Alamat Visitor" id="first-name-icon" name="alamat">
-                                                        <div class="form-control-icon">
-                                                            <i class="bi bi-person"></i>
-                                                        </div>
-                                                        @error('alamat')
-                                                        <div class="invalid-feedback">
-                                                            {{$message}}
-                                                        </div>
-                                                        @enderror
+                                                <div class="form-group">
+
+                                                    <input type="text" class="form-control @error('alamat') is-invalid @enderror" placeholder="Masukkan Alamat Visitor" id="first-name-icon" name="alamat">
+
+                                                    @error('alamat')
+                                                    <div class="invalid-feedback">
+                                                        {{$message}}
                                                     </div>
+                                                    @enderror
+
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <label>Nomor Kontak HP</label>
                                             </div>
                                             <div class="col-md-8">
-                                                <div class="form-group has-icon-left">
-                                                    <div class="position-relative">
-                                                        <input type="text" class="form-control @error('nokontak') is-invalid @enderror" placeholder="Masukkan No HP Visitor" id="first-name-icon" name="nokontak">
-                                                        <div class="form-control-icon">
-                                                            <i class="bi bi-person"></i>
-                                                        </div>
-                                                        @error('nokontak')
-                                                        <div class="invalid-feedback">
-                                                            {{$message}}
-                                                        </div>
-                                                        @enderror
+                                                <div class="form-group">
+
+                                                    <input type="text" class="form-control @error('nokontak') is-invalid @enderror" placeholder="Masukkan No HP Visitor" id="first-name-icon" name="nokontak">
+
+                                                    @error('nokontak')
+                                                    <div class="invalid-feedback">
+                                                        {{$message}}
                                                     </div>
+                                                    @enderror
+
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <label>Fungsi Yang Dikunjungi</label>
                                             </div>
                                             <div class="col-md-8">
-                                                <div class="form-group has-icon-left">
-                                                    <div class="position-relative">
-                                                        <select class="form-control @error('fungsiid') is-invalid @enderror" id="fungsiid" name="fungsiid" onchange="">
-                                                            <!-- using FOREIGN ID -->
-                                                            @foreach ($fungsi as $item)
-                                                            <option value="" disabled selected hidden >Pilih Fungsi</option>
-                                                            <option value="{{$item->id}}">{{$item->nama_fungsi}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        <div class="form-control-icon">
-                                                            <i class="bi bi-person"></i>
-                                                        </div>
-                                                        @error('fungsiid')
-                                                        <div class="invalid-feedback">
-                                                            {{$message}}
-                                                        </div>
-                                                        @enderror
+                                                <div class="form-group">
+
+                                                    <select class="form-control @error('fungsiid') is-invalid @enderror" id="fungsiid" name="fungsiid" onchange="">
+                                                        <!-- using FOREIGN ID -->
+                                                        @foreach ($fungsi as $item)
+                                                        <option value="" disabled selected hidden>Pilih Fungsi</option>
+                                                        <option value="{{$item->id}}">{{$item->nama_fungsi}}</option>
+                                                        @endforeach
+                                                    </select>
+
+                                                    @error('fungsiid')
+                                                    <div class="invalid-feedback">
+                                                        {{$message}}
                                                     </div>
+                                                    @enderror
+
                                                 </div>
                                             </div>
 
@@ -143,80 +133,76 @@
                                                 <label>Nama Karyawan</label>
                                             </div>
                                             <div class="col-md-8">
-                                                <div class="form-group has-icon-left">
-                                                    <div class="position-relative">
-                                                        <select class="form-control @error('karyawanid') is-invalid @enderror" id="karyawanid" name="karyawanid">
-                                                            <!-- using FOREIGN ID -->
+                                                <div class="form-group">
 
-                                                        </select>
-                                                        <div class="form-control-icon">
-                                                            <i class="bi bi-person"></i>
-                                                        </div>
-                                                        @error('karyawanid')
-                                                        <div class="invalid-feedback">
-                                                            {{$message}}
-                                                        </div>
-                                                        @enderror
+                                                    <select class="form-control @error('karyawanid') is-invalid @enderror" id="karyawanid" name="karyawanid">
+                                                        <!-- using FOREIGN ID -->
+
+                                                    </select>
+
+                                                    @error('karyawanid')
+                                                    <div class="invalid-feedback">
+                                                        {{$message}}
                                                     </div>
+                                                    @enderror
+
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <label>Keperluan</label>
                                             </div>
                                             <div class="col-md-8">
-                                                <div class="form-group has-icon-left">
-                                                    <div class="position-relative">
-                                                        <div class="form-floating">
-                                                            <textarea class="form-control" placeholder="Leave a comment here" name="keperluan"></textarea>
-                                                            <label for="floatingTextarea">Masukkan Keperluan</label>
-                                                        </div>
-                                                        @error('keperluan')
-                                                        <div class="invalid-feedback">
-                                                            {{$message}}
-                                                        </div>
-                                                        @enderror
+                                                <div class="form-group">
+
+                                                    <div class="form-floating">
+                                                        <textarea class="form-control" placeholder="Leave a comment here" name="keperluan"></textarea>
+                                                        <label for="floatingTextarea">Masukkan Keperluan</label>
                                                     </div>
+                                                    @error('keperluan')
+                                                    <div class="invalid-feedback">
+                                                        {{$message}}
+                                                    </div>
+                                                    @enderror
+
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <label>Nomor Kartu</label>
                                             </div>
                                             <div class="col-md-8">
-                                                <div class="form-group has-icon-left">
-                                                    <div class="position-relative">
-                                                        <select class="form-control @error('nokartu') is-invalid @enderror" id="nokartu" name="nokartu">
-                                                            <!-- using FOREIGN ID -->
-                                                            @foreach ($card as $item)
-                                                            <option value="{{$item->id}}">{{$item->no_kartu}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        <div class="form-control-icon">
-                                                            <i class="bi bi-person"></i>
-                                                        </div>
-                                                        @error('nokartu')
-                                                        <div class="invalid-feedback">
-                                                            {{$message}}
-                                                        </div>
-                                                        @enderror
+                                                <div class="form-group">
 
+                                                    <select class="form-control @error('nokartu') is-invalid @enderror" id="nokartu" name="nokartu">
+                                                        <!-- using FOREIGN ID -->
+                                                        @foreach ($card as $item)
+                                                        <option value="{{$item->id}}">{{$item->no_kartu}}</option>
+                                                        @endforeach
+                                                    </select>
+
+                                                    @error('nokartu')
+                                                    <div class="invalid-feedback">
+                                                        {{$message}}
                                                     </div>
+                                                    @enderror
+
+
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="col-md-4">
                                                 <label>Status</label>
                                             </div>
                                             <div class="col-md-8">
-                                                <div class="form-group has-icon-left">
-                                                    <div class="position-relative">
-                                                       <span class="badge rounded-pill bg-primary"><input type="text" value="datang" name="status" readonly hidden> datang </span>
+                                                <div class="form-group">
 
-                                                        @error('status')
-                                                        <div class="invalid-feedback">
-                                                            {{$message}}
-                                                        </div>
-                                                        @enderror
+                                                    <span class="badge rounded-pill bg-primary"><input type="text" value="datang" name="status" readonly hidden> datang </span>
+
+                                                    @error('status')
+                                                    <div class="invalid-feedback">
+                                                        {{$message}}
                                                     </div>
+                                                    @enderror
+
                                                 </div>
                                             </div>
                                             <div class="col-12 d-flex justify-content-end">
@@ -246,6 +232,7 @@
             type: 'GET',
             dataType: 'json', // added data type
             success: function(res) {
+                console.log(res);
                 $('#karyawanid').empty();
                 $("#karyawanid").append('<option>Pilih Karyawan</option>');
                 if (res) {

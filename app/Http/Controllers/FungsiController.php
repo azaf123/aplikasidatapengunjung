@@ -43,12 +43,12 @@ class FungsiController extends Controller
 
             ],
             [
-                'namafungsi.required' => 'nama fungsi is required',
-                'namafungsi.required' => 'nama fungsi is required',
-                'namafungsi.min' => 'min 3 words',
-                'namafungsi.max' => 'max 100 words',
-
+                'namafungsi.required' => 'Nama Fungsi tidak boleh kosong',
+                'namafungsi.min' => 'Nama Fungsi minimal 3 karakter',
+                'namafungsi.max' => 'Nama Fungsi maksimal 100 karakter',
+                
             ]
+
         );
 
         Fungsi::create(
@@ -56,7 +56,8 @@ class FungsiController extends Controller
                 'nama_fungsi' => $request->namafungsi
             ]
         );
-        return redirect('/fungsi')->with('status', 'Berhasil Ditambahkan');
+        toast('Berhasil Ditambahkan','success'); 
+        return redirect('/master-data/fungsi')->with('status');
     }
 
     /**
@@ -109,7 +110,8 @@ class FungsiController extends Controller
                 'nama_fungsi' => $request->namafungsi
             ]
         );
-        return redirect('/fungsi')->with('status', 'Berhasil Diperbarui');
+        toast('Berhasil Diperbarui','success'); 
+        return redirect('/master-data/fungsi')->with('status');
     }
 
     /**
@@ -121,6 +123,7 @@ class FungsiController extends Controller
     public function destroy(Fungsi $fungsi)
     {
         Fungsi::destroy('id', $fungsi->id);
-        return redirect('/fungsi')->with('status','Berhasil Dihapus');
+        toast('Berhasil Dihapus','success'); 
+        return redirect('/master-data/fungsi')->with('status');
     }
 }

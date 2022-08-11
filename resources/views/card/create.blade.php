@@ -38,7 +38,7 @@
                         </div>
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form form-horizontal" action="{{ url('/card')}}" method="POST">
+                                <form class="form form-horizontal" action="{{ url('/master-data/card')}}" method="POST">
                                     @csrf
                                     <div class="form-body">
                                         <div class="row">
@@ -46,12 +46,10 @@
                                                 <label>Nomor Kartu</label>
                                             </div>
                                             <div class="col-md-8">
-                                                <div class="form-group has-icon-left">
+                                                <div class="form-group">
                                                     <div class="position-relative">
                                                         <input type="text" class="form-control @error('nokartu') is-invalid @enderror" placeholder="Masukkan Nomor Kartu" id="first-name-icon" name="nokartu">
-                                                        <div class="form-control-icon">
-                                                            <i class="bi bi-person"></i>
-                                                        </div>
+                                                       
                                                         @error('nokartu')
                                                         <div class="invalid-feedback">
                                                             {{$message}}

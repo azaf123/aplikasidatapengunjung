@@ -38,7 +38,7 @@
                         </div>
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form form-horizontal" action="{{ url('/employee/'.$employee->id)}}" method="POST">
+                                <form class="form form-horizontal" action="{{ url('/master-data/employee/'.$employee->id)}}" method="POST">
                                     @csrf
                                     @method('PATCH')
                                     <div class="form-body">
@@ -47,12 +47,9 @@
                                                 <label>Nama Karyawan</label>
                                             </div>
                                             <div class="col-md-8">
-                                                <div class="form-group has-icon-left">
+                                                <div class="form-group">
                                                     <div class="position-relative">
                                                         <input type="text" class="form-control @error('namakaryawan') is-invalid @enderror" placeholder="Masukkan Nama employee" id="first-name-icon" name="namakaryawan" value="{{$employee->nama_karyawan}}">
-                                                        <div class="form-control-icon">
-                                                            <i class="bi bi-person"></i>
-                                                        </div>
                                                         @error('namakaryawan')
                                                         <div class="invalid-feedback">
                                                             {{$message}}
@@ -65,12 +62,9 @@
                                                 <label>Nomor Pegawai</label>
                                             </div>
                                             <div class="col-md-8">
-                                                <div class="form-group has-icon-left">
+                                                <div class="form-group">
                                                     <div class="position-relative">
                                                         <input type="text" class="form-control @error('nopegawai') is-invalid @enderror" placeholder="Masukkan Nomor Pegawai" id="first-name-icon" name="nopegawai" value="{{$employee->no_karyawan}}">
-                                                        <div class="form-control-icon">
-                                                            <i class="bi bi-person"></i>
-                                                        </div>
                                                         @error('nopegawai')
                                                         <div class="invalid-feedback">
                                                             {{$message}}
@@ -83,7 +77,7 @@
                                                 <label>Fungsi</label>
                                             </div>
                                             <div class="col-md-8">
-                                                <div class="form-group has-icon-left">
+                                                <div class="form-group">
                                                     <div class="position-relative">
                                                         <select class="form-control @error('fungsiid') is-invalid @enderror" id="fungsiid" name="fungsiid">
                                                             <!-- using FOREIGN ID -->
@@ -91,9 +85,6 @@
                                                             <option value="{{$item->id}}">{{$item->nama_fungsi}}</option>
                                                             @endforeach
                                                         </select>
-                                                        <div class="form-control-icon">
-                                                            <i class="bi bi-person"></i>
-                                                        </div>
                                                         @error('fungsiid')
                                                         <div class="invalid-feedback">
                                                             {{$message}}
@@ -106,12 +97,9 @@
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-8">
-                                                <div class="form-group has-icon-left">
+                                                <div class="form-group">
                                                     <div class="position-relative">
                                                         <input type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Masukkan Email" id="first-name-icon" name="email" value="{{$employee->email}}">
-                                                        <div class="form-control-icon">
-                                                            <i class="bi bi-person"></i>
-                                                        </div>
                                                         @error('email')
                                                         <div class="invalid-feedback">
                                                             {{$message}}

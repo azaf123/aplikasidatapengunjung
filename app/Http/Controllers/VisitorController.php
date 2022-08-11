@@ -1,20 +1,28 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Card;
 use App\Models\Visitor;
 use App\Models\Employee;
 use App\Models\Fungsi;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+use Image;
+use App\Exports\VisitorExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class VisitorController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+    }
     public function index()
     {
         $visitor = Visitor::all();
@@ -78,9 +86,16 @@ class VisitorController extends Controller
     
 
         $img = $request->file('image'); //mengambil file dari form
+        // return $img;
         $file_name = time()."_". $img->getClientOriginalName(); //mengambil dan mengedit nama file dari form
-        $img->move('img', $file_name); //proses memasukkan image ke dalam direktori laravel
-        
+        $img =\Image::make($img);
+        $logo = \Image::make(public_path('assets/images/logo/pertamina.png'));
+        $logo->resize(400,300);
+        $logo->greyscale();
+        $img->insert($logo,'center');
+        // $img->insert($logo,'top-right',210,0);  
+        $img->save(public_path('img/'.$file_name)); //proses memasukkan image ke dalam direktori laravel
+       
         Visitor::create(
             [
                 'image'=>$file_name,
@@ -96,10 +111,16 @@ class VisitorController extends Controller
             Card::where('id', $request->nokartu)->update([
                 'status'=> 'aktif'
             ]);
-            
-        return redirect('/visitor')->with('status', 'Berhasil Ditambahkan');
+            toast('Berhasil Ditambahkan','success');  
+        return redirect('/master-data/visitor')->with('status');
     }
 
+    public function showPdf(){
+        $visitor = Visitor::all();
+        $pdf = PDF::loadView('visitor.pdf', compact('visitor'));
+        return $pdf->download('visitor.pdf');
+        
+    }
     /**
      * Display the specified resource.
      *
@@ -172,8 +193,8 @@ class VisitorController extends Controller
       
             
           
-    
-        return redirect('/visitor')->with('status', 'Berhasil Diperbarui');
+                toast('Berhasil Diperbarui','success');  
+        return redirect('/master-data/visitor')->with('status');
     }
 
     /**
@@ -188,17 +209,21 @@ class VisitorController extends Controller
         Card::where('id',$visitor->card_id)->update([
             'status'=>'inaktif'
         ]);
-        return redirect('/visitor')->with('status','Berhasil Dihapus');
+        toast('Berhasil Dihapus','success');  
+        return redirect('/master-data/visitor')->with('status');
  
     }
-
+// ajax
     public function karyawanTofungsi($id){
         $karyawan = Employee::where('fungsi_id',$id)->get();
         return response()->json($karyawan);
     }
+    public function visitorToAlamat($id){
+        $visitor = Visitor::find($id);
+        return response()->json($visitor);  
+    }
 
     public function keluarForm(){
-
         $card = Card::where('status','aktif')->get();
         return view('visitor.keluar',compact('card'));
     }
@@ -220,7 +245,11 @@ class VisitorController extends Controller
 
         ]);
 
-return redirect('/visitor');
+        return redirect('/master-data/visitor');
     }
     
+    public function visitorexport(){
+       
+        return Excel::download(new VisitorExport,'visitor.xlsx');
+    }
 }

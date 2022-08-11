@@ -38,22 +38,40 @@
                         </div>
                         <div class="card-content">
                             <div class="card-body">
-                            <form class="form form-horizontal" action="{{ url('/card/'.$card->id)}}" method="POST">
+                            <form class="form form-horizontal" action="{{ url('/master-data/card/'.$card->id)}}" method="POST">
                                     @csrf
                                     @method('PATCH')
                                     <div class="form-body">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                <label>Nama Kartu</label>
+                                                <label>Nomor Kartu</label>
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="form-group has-icon-left">
                                                     <div class="position-relative">
-                                                        <input type="text" class="form-control @error('namakartu') is-invalid @enderror" placeholder="Masukkan Nama card" id="first-name-icon" name="namakartu" value="{{$card->no_kartu}}">
+                                                        <input type="text" class="form-control @error('nokartu') is-invalid @enderror" placeholder="Masukkan Nomor kartu" id="first-name-icon" name="nokartu" value="{{$card->no_kartu}}">
                                                         <div class="form-control-icon">
                                                             <i class="bi bi-person"></i>
                                                         </div>
-                                                        @error('namakartu')
+                                                        @error('nokartu')
+                                                        <div class="invalid-feedback">
+                                                            {{$message}}
+                                                        </div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Status</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-group has-icon-left">
+                                                    <div class="position-relative">
+                                                        <span><input type="text" class="form-control @error('status') is-invalid @enderror" placeholder="Masukkan Nomor kartu" id="first-name-icon" name="status" value="{{$card->status}}" readonly><span>
+                                                        <div class="form-control-icon">
+                                                            <i class="bi bi-person"></i>
+                                                        </div>
+                                                        @error('status')
                                                         <div class="invalid-feedback">
                                                             {{$message}}
                                                         </div>

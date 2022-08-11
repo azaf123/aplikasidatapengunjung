@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Fungsi;
+use App\Models\Officer;
 use App\Models\Visitor;
 use Illuminate\Http\Request;
-
+use RealRashid\SweetAlert\Facades\Alert;
 class ReportController extends Controller
 {
     /**
@@ -11,6 +14,10 @@ class ReportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+    }
     public function index()
     {
         $visitor = Visitor::all();
@@ -23,16 +30,38 @@ class ReportController extends Controller
     }
 
     public function cetakFormPertanggal(){
-        
-        return view('laporan.cetak-pertanggal');
+        $visitor = Visitor::all();
+        $fungsi = Fungsi::all();
+        return view('laporan.cetak-pertanggal',compact('visitor','fungsi'));
     }
 
-    public function cetakPertanggal($tglawal, $tglakhir){
+    public function cetakPertanggal($tglawal, $tglakhir,$fungsi){
         // return [$tglawal,$tglakhir];
-        // dd("Tanggal Awal". $tglawal, "Tanggal Akhir" . $tglakhir);
+        // dd("Tanggal Awal". $tglawal, "Tanggal Akhir" . $tglakhir , "fungsi".$fungsi);
+        // dd($tglawal,$tglakhir,$fungsi);
+        $fungsis = Fungsi::all();
+        $tglpengunjung = Visitor::all()->whereBetween('created_at',[$tglawal,$tglakhir])->whereIn('fungsi_id',$fungsi);
+        if($tglpengunjung->count() > 0){
+            return view('laporan.cetak-pertanggal-fix', compact('tglpengunjung','fungsis'));
+        }else{
+            Alert::error('Data Tidak Ditemukan','Oops..');
+            return redirect()->back();
+        }
         
+    }
+    public function cetakPertanggalWithoutFungsi($tglawal, $tglakhir){
         $tglpengunjung = Visitor::all()->whereBetween('created_at',[$tglawal,$tglakhir]);
-        return view('laporan.cetak-pertanggal-fix', compact('tglpengunjung'));
+        if($tglpengunjung->count() > 0){
+            return view('laporan.cetak-pertanggal-fix', compact('tglpengunjung'));
+        }else{
+            Alert::error('Data Tidak Ditemukan','Oops..');
+            return redirect()->back();
+        }
+    }
+    
+
+    public function cetakError(){
+        return view('laporan.cetakerror');
     }
     /**
      * Show the form for creating a new resource.

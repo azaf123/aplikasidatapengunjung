@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>Aplikasi Data Pengunjung PT Pertamina Patra Niaga Regional Sumbagsel</title>
-
+    <script src="https://kit.fontawesome.com/7602ab58ea.js" crossorigin="anonymous"></script>
     <!-- link for css -->
-    <link rel="stylesheet" href="{{asset('assets/css/desktop.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/tab.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/mobile.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/desktop.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/tab.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/mobile.css')}}">
    
     <!-- link for bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
