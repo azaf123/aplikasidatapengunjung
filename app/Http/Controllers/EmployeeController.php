@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Employee;
 use App\Models\Fungsi;
 use Illuminate\Http\Request;
-
+use App\Imports\EmployeesImport;
+use Maatwebsite\Excel\Facades\Excel;
 class EmployeeController extends Controller
 {
     /**
@@ -49,12 +50,12 @@ class EmployeeController extends Controller
 
             ],
             [
-                'namakaryawan.required' => 'Nama Karyawan Diperlukan',
-                'namakaryawan.min' => 'min 3 kata',
-                'namakaryawan.max' => 'max 100 kata',
-                'nopegawai.required' => 'Nomor Pegawai Diperlukan',
-                'fungsiid.required' => 'Nama Fungsi Diperlukan',
-                'email.required' => 'Email Diperlukan',
+                'namakaryawan.required' => 'Nama karyawan harus diisi',
+                'namakaryawan.min' => 'Nama karyawan minimal 3 karakter',
+                'namakaryawan.max' => 'Nama karyawan maksimal 100 karakter',
+                'nopegawai.required' => 'Nomor pegawai harus diisi',
+                'fungsiid.required' => 'Fungsi harus diisi',
+                'email.required' => 'Email harus diisi',
 
             ]
         );
@@ -67,9 +68,11 @@ class EmployeeController extends Controller
                 'email' => $request->email
             ]
         );
-        return redirect('/employee')->with('status', 'Berhasil Ditambahkan');
+        toast('Berhasil Ditambahkan','success');  
+        return redirect('/master-data/employee')->with('status');
     }
 
+   
     /**
      * Display the specified resource.
      *
@@ -111,12 +114,12 @@ class EmployeeController extends Controller
 
             ],
             [
-                'namakaryawan.required' => 'Nama Karyawan Diperlukan',
-                'namakaryawan.min' => 'min 3 kata',
-                'namakaryawan.max' => 'max 100 kata',
-                'nopegawai.required' => 'Nomor Pegawai Diperlukan',
-                'fungsiid.required' => 'Nama Fungsi Diperlukan',
-                'email.required' => 'Email Diperlukan',
+                'namakaryawan.required' => 'Nama karyawan harus diisi',
+                'namakaryawan.min' => 'Nama karyawan minimal 3 karakter',
+                'namakaryawan.max' => 'Nama karyawan maksimal 100 karakter',
+                'nopegawai.required' => 'Nomor pegawai harus diisi',
+                'fungsiid.required' => 'Fungsi harus diisi',
+                'email.required' => 'Email harus diisi',
 
             ]
         );
@@ -129,7 +132,8 @@ class EmployeeController extends Controller
                 'email' => $request->email
             ]
         );
-        return redirect('/employee')->with('status', 'Berhasil Diperbarui');
+        toast('Berhasil Diperbarui','success'); 
+        return redirect('/master-data/employee')->with('status');
     }
 
     /**
@@ -141,6 +145,17 @@ class EmployeeController extends Controller
     public function destroy(Employee $employee)
     {
         Employee::destroy('id', $employee->id);
-        return redirect('/employee')->with('status','Berhasil Dihapus');
+        toast('Berhasil Dihapus','success'); 
+        return redirect('/master-data/employee')->with('status');
+        
+    }
+    public function importEmployeeView(){
+       return view('employee.import');
+    }
+
+    public function importEmployee(Request $request){
+        Excel::import(new EmployeesImport, $request->file('excelfile'));
+        toast('Berhasil Di Import','success'); 
+        return redirect('/master-data/employee')->with('status');
     }
 }

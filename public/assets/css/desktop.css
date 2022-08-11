@@ -1,7 +1,11 @@
 @media (min-width: 1200px) {
+    *{
+        font-family: poppins;
+    }
+    }
     @font-face {
-        font-family: "Poppins";
-        src: url(./fonts/Poppins/Poppins-Medium.ttf);
+        font-family: 'Poppins';
+        src: url(../font/Poppins-Regular.ttf);
     }
 
     /* Base */
@@ -18,8 +22,13 @@
         width: auto;
         padding: 38px;
         margin-top: 84px;
-        border-radius: 16px;
-        backdrop-filter: blur(3.5px);
+       
+background: rgba(255, 255, 255, 0.23);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
     #base .wadahluar .btn-primary {
@@ -81,7 +90,7 @@
         color: #408458;
         background-color: white;
         border-radius: 50px;
-        ;
+  
         font-size: 40px;
         margin-right: auto;
         width: 34px;
@@ -92,7 +101,7 @@
         color: #408458;
         background-color: white;
         border-radius: 50px;
-        ;
+
         font-size: 40px;
         margin-left: auto;
         width: 34px;
@@ -151,33 +160,47 @@
 
     /* Base2 */
     #base2 {
-        /* background-image: url(bg1.jpeg); */
-        padding-top: 10px;
+        background-image: url(bg2.jpeg);
+        margin-top: -75px;
         padding-bottom: 85px;
-        border-image-width: 100%;
+        border-image-width: 100%;   
+    }
+ 
+    #base2 .ktp h1{
+        font-size: 30px;
+        margin-top: 25px;
+        margin-bottom: 20px;
+        color:red;
     }
 
     #base2 .wadahluar {
-        /* background-color: rgba(128, 128, 128, 0.6); */
-        height: 632px;
+        background-color: aquamarine;
+        height: auto;
         width: auto;
         padding: 38px;
         margin-top: 84px;
-        border-radius: 16px;
+
+        border-radius: 49px;
+background: #e0e0e0;
+box-shadow:  35px 35px 68px #bebebe,
+             -35px -35px 68px #ffffff;
+        /* backdrop-filter: blur(1.5px); */
     }
+    
+    
 
     #base2 .wadahkiri {
         height: 360px;
         border-radius: 16px;
-        margin-top: 31px;
+        margin-top: 10px;
         margin-left: 12px;
     }
 
     #base2 .vr {
-        outline-style: solid;
-        size: 20px;
-        color: black;
-        margin-left: 5px;
+        height: 360px;
+        border-radius: 16px;
+        margin-top: 31px;
+        margin-left: 12px;
     }
 
     #base2 .title {
@@ -196,25 +219,31 @@
     }
 
     #base2 .wadahkanan {
-        background-color: rgb(173, 172, 172);
-        margin-top: 30px;
-        height: 206px;
-        width: 190px;
-        margin-left: 45px;
+        height: 360px;
+        border-radius: 16px;
+        margin-top: 31px;
+        margin-left: 12px;
     }
 
-    #base2 .wadahkanan .fa-camera {
-        width: auto;
-        height: 111px;
-        margin-top: 40px;
-        margin-left: 27px;
-        padding-bottom: 50px;
+    #my_camera button{
+        margin-top: 31px;
+        margin-left: 42px;
+        height: 60%;
+        width: 60%;
+        border-radius: 16px; 
+      
     }
+  #my_camera img{
+    width: 70%;
+    height: 70%;
+
+  }
 
     #base2 .ulangi {
-        margin-left: 60px;
-        text-decoration: none;
-        color: black;
+        margin-top: 31px;
+        height: 165px;
+        width: 245px;
+        border-radius: 16px;
     }
 
     #base2 .btn-success {
@@ -222,8 +251,7 @@
     }
 
     #base2 .btn-danger {
-        margin-top: 10px;
-        margin-left: 31%;
+        margin-left: 33px;
     }
 
     /* Base 3 */

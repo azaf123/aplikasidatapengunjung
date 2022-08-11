@@ -43,24 +43,44 @@
                     Laporan Data Pengunjung per Tanggal Berkunjung
                 </div>
                 <div class="card-body">
-
+              
                     <table class="table table-striped" id="table1">
                         <div class="row">
-                            <label for="">Tanggal Awal</label>
+                            <div class="col-lg-3">
+                                <label class="form-label" for="">Tanggal Awal</label>
+                                <div class="position-relative">
+                                    <input class="form-control" type="date" name="tglawal" id="tglawal">
+                                    <b>
+                                        <p style="font-size: 15px;">*jangan lupa masukkan tanggal</p>
+                                    </b>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <label class="form-label" for="">Tanggal Akhir</label>
+                                <div class="position-relative">
+                                    <input class="form-control" type="date" name="tglakhir" id="tglakhir">
+                                    <b>
+                                        <p style="font-size: 15px;">*jangan lupa masukkan tanggal</p>
+                                    </b>
+                                    <br>
+                                    <br>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="form-label" for="">Fungsi</label>   
                             <div class="position-relative">
-                                <input type="date" name="tglawal" id="tglawal">
+                                <select class="form-select fungsi" name="fungsi" id="fungsi" style="width:170px; margin-top:-50px;">
+                                    @foreach($fungsi as $item)
+                                    <option value="{{$item->id}}">{{$item->nama_fungsi}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <br>
-                        <div class="row">
-                            <label for="">Tanggal Akhir</label>
-                            <div class="position-relative">
-                                <input type="date" name="tglakhir" id="tglakhir">
-                            <br>
-                            <br>
-                         <!-- if -->
-                            <a href="" class="btn btn-primary" onclick="this.href='/aplikasidatapengunjung/public/cetakpertanggal/'+ document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value">Submit</a>
-                            </div>
+                        <a href="" class="btn btn-primary" onclick="this.href='/aplikasidatapengunjung/public/cetakpertanggal/'+ document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value+ '/' + document.getElementById('fungsi').value">Submit</a>
+
                     </table>
                 </div>
             </div>
@@ -68,6 +88,10 @@
         </section>
     </div>
 
-    
+
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$('.fungsi').prepend('<option value="">Semua Fungsi</option>');
+</script>
 @endsesction

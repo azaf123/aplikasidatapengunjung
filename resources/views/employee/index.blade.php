@@ -2,6 +2,9 @@
 @section('title', 'Data Karyawan')
 
 @section('main')
+<style>
+
+</style>
 <div id="main">
     <header class="mb-3">
         <a href="#" class="burger-btn d-block d-xl-none">
@@ -26,10 +29,18 @@
                             @endif
                         </div>
                     </div>
+                    
                     <div class="row mb-3">
                         <div class="col">
-                            <a href="{{ url('/employee/create')}}" class="btn btn-primary" role="button">
-                            <i class="fa-regular fa-plus"></i>  Tambah Karyawan 
+                            <a href="{{ url('/master-data/employee/create')}}" class="btn btn-primary" role="button">
+                            <span style="margin-right: 10px;"><span class="fa-fw select-all fas"></span></span> Tambah Karyawan 
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <a href="{{ url('/master-data/importemployeeview')}}" class="btn btn-secondary" role="button">
+                            <span style="margin-right: 10px;"><span class="fa-fw select-all fas"></span></span>  Import data 
                             </a>
                         </div>
                     </div>
@@ -73,11 +84,11 @@
                                
                                 
                                 <td>
-                                    <a href="{{url('/employee/'.$item->id).'/edit'}}" class="btn btn-info"><i class="fa-regular fa-pen-to-square"></i></a>
-                                    <form method="POST" action="{{url('/employee/'.$item->id)}}">
+                                    <a href="{{url('/master-data/employee/'.$item->id).'/edit'}}" class="btn btn-info"><span class="fa-fw select-all fas"></span></a></a>
+                                    <form method="POST" action="{{url('/master-data/employee/'.$item->id)}}">
                                         @csrf
                                         @method("delete")
-                                        <button type="submit" class="btn btn-danger mt-3"><i class="fa-solid fa-trash-can"></i></button>
+                                        <button type="submit" class="btn btn-danger mt-3"><span class="fa-fw select-all fas"></span></button>
                                     </form>
                                 </td>
                             </tr>

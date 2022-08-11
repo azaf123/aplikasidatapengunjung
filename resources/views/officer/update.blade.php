@@ -38,7 +38,7 @@
                         </div>
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form form-horizontal" action="{{ url('/officer/'.$officer->id)}}" method="POST">
+                                <form class="form form-horizontal" action="{{ url('/master-data/officer/'.$officer->id)}}" method="POST">
                                     @csrf
                                     @method('PATCH')
                                     <div class="form-body">

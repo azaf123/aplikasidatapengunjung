@@ -8,7 +8,6 @@
             <i class="bi bi-justify fs-3"></i>
         </a>
     </header>
-
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
@@ -28,8 +27,8 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <a href="{{ url('/fungsi/create')}}" class="btn btn-primary" role="button">
-                            <i class="fa-regular fa-plus"></i> Tambah Fungsi  
+                            <a href="{{ url('/master-data/fungsi/create')}}" class="btn btn-primary" role="button">
+                            <span style="margin-right: 10px;"><span class="fa-fw select-all fas"></span></span> Tambah Fungsi  
                             </a>
                         </div>
                     </div>
@@ -68,11 +67,11 @@
 
 
                                 <td>
-                                    <a href="{{url('/fungsi/'.$item->id).'/edit'}}" class="btn btn-info"><i class="fa-regular fa-pen-to-square"></i></a>
-                                    <form method="POST" action="{{url('/fungsi/'.$item->id)}}">
+                                    <a href="{{url('/master-data/fungsi/'.$item->id).'/edit'}}" class="btn btn-info"><span class="fa-fw select-all fas"></span></a>
+                                    <form method="POST" action="{{url('/master-data/fungsi/'.$item->id)}}">
                                         @csrf
                                         @method("delete")
-                                        <button type="submit" class="btn btn-danger mt-3"><i class="fa-solid fa-trash-can"></i></button>
+                                        <button type="submit" class="btn btn-danger mt-3"><span class="fa-fw select-all fas"></span></button>
                                     </form>
                                 </td>
                             </tr>

@@ -15,15 +15,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Laporan Data Pengunjung</h3>
+                <h3>Laporan Pengunjung</h3>
                 <p class="text-subtitle text-muted">PT Pertamina Patra Niaga Regional Sumbagsel</p>
-                <div class="row mb-3">
-                    <div class="col">
-                        <a href="" id="printPageButton" onclick="window.print();" class="btn btn-primary" role="button">
-                            Cetak Data Laporan
-                        </a>
-                    </div>
-                </div>
+                <p>
+                    Petugas : {{ Auth::user()->name }}
+                </p>
             </div>
            
         </div>
@@ -43,7 +39,7 @@
                             <th>Nama Pengunjung</th>
                             <th>Alamat</th>
                             <th>Fungsi Yang Dikunjungi</th>
-                            <th>Karyawan ID</th>
+                            <th>Nama Karyawan </th>
                             <th>Keperluan</th>
                             <th>Tanggal dan Waktu Kunjungan</th>
 
@@ -57,7 +53,7 @@
                             <td>{{ $item->nama_pengunjung }}</td>
                             <td>{{ $item->alamat }}</td>
                             <td>{{ $item->fungsi->nama_fungsi }}</td>
-                            <td>{{ $item->karyawan_id }}</td>
+                            <td>{{ $item->employee->nama_karyawan }}</td>
                             <td>{{ $item->keperluan }}</td>
                             <td>{{$item->created_at}}</td>
 
@@ -69,9 +65,17 @@
         </div>
         <div class="row mb-3">
                     <div class="col">
-                        <a href="{{url('/laporan')}}" id="printPageButton" onclick="" class="btn btn-secondary" role="button">
+                        <a href="{{url('master-data-petugas/laporan')}}" id="printPageButton" onclick="" class="btn btn-secondary" role="button">
                             Kembali
                         </a>
+                    </div>
+                    <div class="col-lg-2">
+                        <a href="" id="printPageButton" onclick="window.print();" class="btn btn-primary" role="button">
+                        <i class="bi bi-printer-fill"></i>    
+                        Cetak Data Laporan
+                            
+                        </a>
+                 
                     </div>
                 </div>
     </div>

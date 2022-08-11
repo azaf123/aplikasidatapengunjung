@@ -28,8 +28,8 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <a href="{{ url('/officer/create')}}" class="btn btn-primary" role="button">
-                            <i class="fa-regular fa-plus"></i> Tambah Petugas 
+                            <a href="{{ url('/master-data/officer/create')}}" class="btn btn-primary" role="button">
+                            <span style="margin-right: 10px;"><span class="fa-fw select-all fas"></span></span> Tambah Petugas 
                             </a>
                         </div>
                     </div>
@@ -69,14 +69,15 @@
                                 <td>{{ $item->nama_petugas }}</td>
                                 <td>{{ $item->no_pegawai }}</td>
                                 <td>{{ $item->email }}</td>
-                                <td>{{ $item->password }}</td>
+                                <td>{{ (strlen($item->password)>10) ? substr($item -> password, 0,8) . '...':$item->password }}</td>
+
                                 
                                 <td>
-                                    <a href="{{url('/officer/'.$item->id).'/edit'}}" class="btn btn-info"><i class="fa-regular fa-pen-to-square"></i></a>
-                                    <form method="POST" action="{{url('/officer/'.$item->id)}}">
+                                    <a href="{{url('/master-data/officer/'.$item->id).'/edit'}}" class="btn btn-info"><span class="fa-fw select-all fas"></span></a>
+                                    <form method="POST" action="{{url('/master-data/officer/'.$item->id)}}">
                                         @csrf
                                         @method("delete")
-                                        <button type="submit" class="btn btn-danger mt-3"><i class="fa-solid fa-trash-can"></i></button>
+                                        <button type="submit" class="btn btn-danger mt-3"><span class="fa-fw select-all fas"></span></button>
                                     </form>
                                 </td>
                             </tr>

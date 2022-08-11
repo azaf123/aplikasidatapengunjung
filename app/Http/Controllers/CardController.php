@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Card;
 use Illuminate\Http\Request;
-
+use App\Imports\CardsImport;
+use Maatwebsite\Excel\Facades\Excel;
 class CardController extends Controller
 {
     /**
@@ -51,7 +52,8 @@ class CardController extends Controller
             'no_kartu'=> $request->nokartu,
             'status'=> $request->status
         ]);
-        return redirect('/card')->with('status', 'Berhasil Ditambahkan');
+        toast('Berhasil Ditambahkan','success');  
+        return redirect('/master-data/card')->with('status');
     }
 
     /**
@@ -101,7 +103,8 @@ class CardController extends Controller
             'no_kartu'=> $request->nokartu,
             'status'=> $request->status
         ]);
-        return redirect('/card')->with('status', 'Berhasil Diperbarui');
+        toast('Berhasil Diperbarui','success');  
+        return redirect('/master-data/card')->with('status');
     }
 
     /**
@@ -113,6 +116,16 @@ class CardController extends Controller
     public function destroy(Card $card)
     {
         card::destroy('id', $card->id);
-        return redirect('/card')->with('status','Berhasil Dihapus');
+        toast('Berhasil Dihapus','success');  
+        return redirect('/master-data/card')->with('status');
     }
+    public function importCardView(){
+        return view('card.import');
+     }
+ 
+     public function importCard(Request $request){
+         Excel::import(new CardsImport, $request->file('excelfile'));
+         toast('Berhasil Di Import','success'); 
+         return redirect('/master-data/card')->with('status');
+     }
 }

@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthController extends Controller
 {
@@ -14,6 +15,7 @@ class AuthController extends Controller
     {
         return view('auth.login');
     }
+   
     public function register()
     {
         return view('auth.register');
@@ -22,64 +24,69 @@ class AuthController extends Controller
     {
         // return $request;
         $request->validate([
+            'name' => 'required',
             'fullname' => 'required',
             'nopegawai' => 'required',
             'email' => 'required|unique:users',
             'password' => 'required|alpha_num',
             'retypepassword' => 'required|same:password|min:8|max:10',
-           
+
         ], [
-            'fullname.required' => 'Nama pengunjung diperlukan ',
-            'nopegawai.required' => 'Nomor Pegawai diperlukan ',
-            'email.required' => 'Email harus diisi ya',
-            'email.unique' => 'Email nya udah ada ni',
-            'password.required' => 'password must be required',
-            'password.min' => 'min 8 character',
-            'password.max' => 'max 10 character',
-            'password.alpha_num' => 'Password must be there is a number',
-            'retypepassword.required' => 'retype password must be required',
-            'retypepassword.same' => 'password must be same with first password',
-            
+            'name.required'=>'Username diperlukan',
+            'fullname.required' => 'Nama Lengkap diperlukan ',
+            'nopegawai.required' => 'Nomor Petugas diperlukan ',
+            'email.required' => 'Email diperlukan',
+            'email.unique' => 'Email sudah terdaftar',
+            'password.required' => 'Password diperlukan',
+            'password.min' => 'min 8 karakter',
+            'password.max' => 'max 10 karakter',
+            'password.alpha_num' => 'Password harus huruf dan angka',
+            'retypepassword.required' => 'Retype Password diperlukan',
+            'retypepassword.same' => 'Password tidak sama',
+
         ]);
         Officer::create([
             'nama_petugas' => $request->fullname,
-            'no_pegawai'=>$request->nopegawai,
+            'no_pegawai' => $request->nopegawai,
+           'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+        User::create([
+            'name'=> $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'level' => 'admin'
         ]);
+        Alert::success('Berhasil', 'Pendaftaran Berhasil');
         return redirect('/login');
     }
 
     public function login_store(Request $request)
     {
-// return $request;
+        // return $request;
+        //if password is incorrect return wrong password
         $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|alpha_num|min:8|max:10',
+            'email' => 'required',
+            'password' => 'required',
         ], [
-            'email.required' => 'email must be required',
-            'password.required' => 'password must be required',
-            'password.min' => 'min 8 character',
-            'password.max' => 'max 10 character',
-            'password.alpha_num' => 'Password must be there is a number',
+            'email.required' => 'Email diperlukan',
+            'password.required' => 'Password diperlukan',
         ]);
-        // syntax login
-        $user = [
-            'email' => $request->email,
-            'password' => $request->password,
-        ];
+        if (!Auth::attempt($request->only(['email', 'password']))) 
+        {
+            Alert::error('Gagal', 'Email atau Password Salah');
 
-        if (Auth::attempt($user)) {
-            return redirect('/');
-        } else {
-            return redirect('/login')->with('error', 'Username atau Password salah!');
+            return redirect('/login')->with('status', 'Email atau Password salah');
         }
-
-        
+        else{
+        Alert::success('Berhasil', 'Login Berhasil');
+        return redirect('master-data/');
+        }
+   
     }
 
-    public function logout(){
+    public function logout()
+    {
         Auth::logout();
         return redirect('/login');
     }

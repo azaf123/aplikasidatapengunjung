@@ -15,7 +15,5 @@ class Employee extends Model
     public function fungsi(){
         return $this-> BelongsTo('App\Models\Fungsi');
     }
-    public function visitor(){
-        return $this -> hasOne(Visitor::class);
-    }
+   
 }

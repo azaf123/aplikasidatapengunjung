@@ -80,8 +80,7 @@
                                 <td>{{ $item->fungsi->nama_fungsi }}</td>
                                 <td>{{ $item->employee->nama_karyawan}}</td>
                                 <td>{{ $item->keperluan }}</td>
-                                <td>{{ $item->created_at }}</td>
-                                
+                                <td>{{ $item->created_at }}</td>     
                             </tr>
                             @endforeach
                         </tbody>

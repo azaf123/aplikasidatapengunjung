@@ -1,6 +1,6 @@
 @extends('templatefrontend.header')
 @section('title', 'Pengunjung Keluar')
-<section id="base3" style="background-image: url('{{url('/bg1.jpeg')}}');">
+<section id="base3" style="background-image: url('{{url('/bg5.jpeg')}}');">
     <div class="container">
         <div class="wadahluar">
             <div class="row">
@@ -39,7 +39,7 @@
                                     <h2>
                                         <b><br />Terima Kasih</b>
                                     </h2>
-                                    <h1>Telah Berkunjung di <b>Pertamina Patra Niaga</b></h1>
+                                    <h1>Telah Berkunjung di <b>PT Pertamina Patra Niaga</b></h1>
                                     <h1><b>Regional Sumbagsel</b></h1>
                                 </div>
                             </div>

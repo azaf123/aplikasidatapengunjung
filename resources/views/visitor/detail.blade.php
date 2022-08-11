@@ -32,18 +32,21 @@
                                 <label for="">Keperluan</label>
                                 <h5>{{ $visitor->keperluan }}</h5>
                                 <br>
-                                <label for="">Tanggal dan Waktu Kunjungan</label>
+                                <label for="">Waktu Kedatangan</label>
                                 <h5>{{ $visitor->created_at }}</h5>
+                                <br>
+                                <label for="">Waktu Kepulangan</label>
+                                <h5>@if($visitor->status == 'datang'){{ $visitor->updated_at == null }}@else{{ $visitor->updated_at }}@endif</h5>
                                 <br>
                                 <label for="">Nomor Kartu</label>
                                 <h5>{{ $visitor->card->no_kartu }}</h5>
                                 <br>
                                 <label for="">Status</label>
-                                <h5>{{ $visitor->status }}</h5>
+                                <h5><span class="badge rounded-pill bg-primary">{{ $visitor->status }}</span></h5>
                             </div>
                             <div class="col-lg-4">
                             <label for="">Foto Pengunjung</label>
-                                <img src="{{ asset('img/' . $visitor->image) }}" alt="image" width="450px" height="450px" style="object-fit:cover">
+                                <img src="{{ asset('img/' . $visitor->image) }}" alt="image" width="450px" height="450px" style="object-fit:cover; border-radius:20px;">
                             </div>
                         </div>
                     </div>
