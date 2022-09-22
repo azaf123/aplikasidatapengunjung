@@ -2,12 +2,27 @@
 @section('title', 'Laporan Data Pengunjung')
 
 <br>
-<br>
-<br>
+
 <style>
-    @media print {
+  @media print {
         #printPageButton {
             display: none;
+        }
+
+        td {
+            font-size: 7px;
+        }
+
+        th {
+            font-size: 8px;
+        }
+
+        h3 {
+            font-size: 10px;
+        }
+
+        p {
+            font-size: 8px;
         }
     }
 </style>
@@ -76,7 +91,7 @@
                     </div>
                     <div class="col-lg-2">
                         <a href="" id="printPageButton" onclick="window.print();" class="btn btn-primary" role="button">
-                        <span class="fa-fw select-all fas"></span>   
+                        <i class="bi bi-printer-fill"></i>
                         Cetak Data Laporan
                         </a>
                  

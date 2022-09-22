@@ -26,6 +26,8 @@ class VisitorController extends Controller
     public function index()
     {
         $visitor = Visitor::all();
+        // orderby new visitor
+        $visitor = Visitor::orderBy('id', 'desc')->get();
         return view('visitor.index',compact('visitor'));
     }
 

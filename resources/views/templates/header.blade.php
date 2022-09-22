@@ -17,28 +17,28 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- <script src="https://kit.fontawesome.com/7602ab58ea.js" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="{{asset('assets/vendors/fontawesome/all.min.css')}}">
-    
+
 
     <script src="{{asset('assets/vendors/apexcharts/apexcharts.js')}}"></script>
     <script src="{{asset('assets/js/pages/dashboard.js')}}"></script>
 
     <script src="{{asset('assets/js/mazer.js')}}"></script>
 
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-   <!-- toastifye -->
-   <script src="{{url('assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
+    <!-- toastifye -->
+    <script src="{{url('assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
     <script src="{{url('assets/js/bootstrap.bundle.min.js')}}"></script>
-    
-<script src="{{url('assets/vendors/toastify/toastify.js')}}"></script>
-<script src="{{url('assets/js/extensions/toastify.js')}}"></script>
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{url('assets/vendors/toastify/toastify.js')}}"></script>
+    <script src="{{url('assets/js/extensions/toastify.js')}}"></script>
 
-<link rel="stylesheet" href="{{asset('assets/vendors/jquery-datatables/jquery.dataTables.bootstrap5.min.css')}}">
-<style>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="stylesheet" href="{{asset('assets/vendors/jquery-datatables/jquery.dataTables.bootstrap5.min.css')}}">
+    <style>
         table.dataTable td {
             padding: 15px 8px;
         }
@@ -47,4 +47,3 @@
             font-size: 24px;
         }
     </style>
-    

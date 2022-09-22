@@ -2,12 +2,26 @@
 @section('title', 'Laporan Data Pengunjung')
 
 <br>
-<br>
-<br>
 <style>
     @media print {
         #printPageButton {
             display: none;
+        }
+
+        td {
+            font-size: 7px;
+        }
+
+        th {
+            font-size: 8px;
+        }
+
+        h3 {
+            font-size: 10px;
+        }
+
+        p {
+            font-size: 8px;
         }
     }
 </style>
@@ -21,14 +35,14 @@
                     Petugas : {{ Auth::user()->name }}
                 </p>
             </div>
-           
+
         </div>
     </div>
 </div>
 <section class="section">
     <div class="container">
         <div class="card">
-            
+
             <div class="card-body">
 
                 <table class="table table-striped" id="table2">
@@ -64,20 +78,20 @@
             </div>
         </div>
         <div class="row mb-3">
-                    <div class="col">
-                        <a href="{{url('master-data-petugas/laporan')}}" id="printPageButton" onclick="" class="btn btn-secondary" role="button">
-                            Kembali
-                        </a>
-                    </div>
-                    <div class="col-lg-2">
-                        <a href="" id="printPageButton" onclick="window.print();" class="btn btn-primary" role="button">
-                        <i class="bi bi-printer-fill"></i>    
-                        Cetak Data Laporan
-                            
-                        </a>
-                 
-                    </div>
-                </div>
+            <div class="col">
+                <a href="{{url('master-data-petugas/laporan')}}" id="printPageButton" onclick="" class="btn btn-secondary" role="button">
+                    Kembali
+                </a>
+            </div>
+            <div class="col-lg-2">
+                <a href="" id="printPageButton" onclick="window.print();" class="btn btn-primary" role="button">
+                    <i class="bi bi-printer-fill"></i>
+                    Cetak Data Laporan
+
+                </a>
+
+            </div>
+        </div>
     </div>
 </section>
 </div>

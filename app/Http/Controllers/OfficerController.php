@@ -15,6 +15,8 @@ class OfficerController extends Controller
     public function index()
     {
         $officer = Officer::all();
+        // order by new 
+        $officer = Officer::orderBy('id', 'desc')->get();
         return view('officer.index', compact('officer'));
     }
 
