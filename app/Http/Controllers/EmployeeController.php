@@ -17,6 +17,10 @@ class EmployeeController extends Controller
     public function index()
     {
         $employee = Employee::all();
+        // order by function and new
+        $employee = Employee::orderBy('fungsi_id', 'asc')->orderBy('id', 'desc')->get();
+        
+        
         return view('employee.index',compact('employee'));
     }
 

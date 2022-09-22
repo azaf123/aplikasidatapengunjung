@@ -183,6 +183,7 @@
                     <!-- Webcam -->
                     <div class="col-lg-2 mt-5">
                         <!-- webcam -->
+                    
                         <div id="my_camera"></div>
                         <div class="row">
                             <div class="col mt-2" style="margin-left: 20px;">
@@ -190,6 +191,7 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="col-lg-2 mt-5">
                         <div id="results"></div>
                         <input type=hidden name="image" class="image-tag">
@@ -298,11 +300,9 @@
                 '<img id="image" src="' + data_uri + '" name="image"/>';
 
         });
-
     }
 
     function remove_snapshot() {
-
         Webcam.set({
             width: 300,
             height: 220,

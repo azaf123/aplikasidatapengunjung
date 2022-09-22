@@ -11,13 +11,12 @@
     #myDiv {
         display: none;
         text-align: center;
-        
+
     }
 </style>
 
 <div id="app">
-    
-  
+    <div id="sidebar" class="active">
         <div class="sidebar-wrapper active">
             <div class="logo-pertamina">
                 <img src="{{ asset('assets\images\logo\pertamina.png') }}" alt="">
@@ -47,44 +46,44 @@
 
                     <li class="sidebar-item @if(Request::segment(2)=='visitor') active @endif">
                         <a href="{{url('/master-data/visitor')}}" class='sidebar-link'>
-                        <span class="fa-fw select-all fas"></span>
+                            <span class="fa-fw select-all fas"></span>
                             <span>Data Visitor</span>
                         </a>
                     </li>
                     <li class="sidebar-item @if(Request::segment(2)=='employee') active @endif">
                         <a href="{{url('/master-data/employee')}}" class='sidebar-link'>
-                        <span class="fa-fw select-all fas"></span>
+                            <span class="fa-fw select-all fas"></span>
                             <span>Data Karyawan</span>
                         </a>
                     </li>
                     <li class="sidebar-item @if(Request::segment(2)=='officer') active @endif">
                         <a href="{{url('/master-data/officer')}}" class='sidebar-link'>
-                        <span class="fa-fw select-all fas"></span>
+                            <span class="fa-fw select-all fas"></span>
                             <span> Data Petugas</span>
                         </a>
                     </li>
                     <li class="sidebar-item sidebar-item @if(Request::segment(2)=='fungsi') active @endif">
                         <a href="{{url('/master-data/fungsi')}}" class='sidebar-link'>
-                        <span class="fa-fw select-all fas"></span>
+                            <span class="fa-fw select-all fas"></span>
                             <span> Data Fungsi</span>
                         </a>
                     </li>
 
                     <li class="sidebar-item sidebar-item @if(Request::segment(2)=='card') active @endif">
                         <a href="{{url('/master-data/card')}}" class='sidebar-link'>
-                        <span class="fa-fw select-all fas"></span>
+                            <span class="fa-fw select-all fas"></span>
                             <span> Data Kartu Pengunjung</span>
                         </a>
                     </li>
                     <li class="sidebar-item sidebar-item @if(Request::segment(2)=='logout') active @endif">
                         <a href="{{url('/logout')}}" class='sidebar-link'>
-                        <span class="fa-fw select-all fas"></span>
+                            <span class="fa-fw select-all fas"></span>
                             <span> Log Out</span>
                         </a>
                     </li>
 
                     <li class="sidebar-title">Laporan</li>
-<!-- 
+                    <!-- 
                     <li class="sidebar-item @if(Request::segment(2)=='laporan') active @endif">
                         <a href="{{url('laporan/laporan')}}" class='sidebar-link'>
                             <i class="fa-solid fa-book"></i>
@@ -93,7 +92,7 @@
                     </li> -->
                     <li class="sidebar-item @if(Request::segment(2)=='laporan') active @endif">
                         <a href="{{url('/master-data/laporan/cetakformpertanggal')}}" class='sidebar-link'>
-                        <span class="fa-fw select-all fas"></span>
+                            <span class="fa-fw select-all fas"></span>
                             <span>Laporan Data Pengunjung</span>
                         </a>
                     </li>

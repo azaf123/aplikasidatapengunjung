@@ -1,6 +1,7 @@
 @media (min-width: 1200px) {
     *{
         font-family: poppins;
+        color: black;
     }
     }
     @font-face {

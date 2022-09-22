@@ -80,9 +80,9 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Image</th>
+                            
                                 <th>Nama Pengunjung</th>
-                                <th>Alamat</th>
+                          
                                 <th>Fungsi Yang Dikunjungi</th>
                                 <th>Nama Karyawan</th>
                                 <th>Keperluan</th>
@@ -98,9 +98,9 @@
                             @foreach ($visitor as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td><img src="{{asset('img/'.$item->image)}}" alt="" width="50"></td>
+
                                 <td>{{ $item->nama_pengunjung }}</td>
-                                <td>{{ $item->alamat }}</td>
+                         
                                 <td>{{ $item->fungsi->nama_fungsi }}</td>
                                 <td>{{ $item->employee->nama_karyawan }}</td>
                                 <td>{{ (strlen($item->keperluan)>10) ? substr($item -> keperluan, 0,8) . '...':$item->keperluan }}</td>

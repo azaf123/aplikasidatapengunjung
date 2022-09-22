@@ -13,7 +13,7 @@
 
                     <div class="d-flex">
                         <div class="row">
-                            <div class="col">
+                            <div class="col-lg-6">
                                 <label for="">Nama</label>
                                 <h5>{{ $visitor->nama_pengunjung }}</h5>
                                 <br>
